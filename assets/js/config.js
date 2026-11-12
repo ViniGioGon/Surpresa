@@ -116,6 +116,15 @@ const CONFIG = {
         cover: "assets/images/covers/default-cover.svg",
         duration: "",
         note: "Mais uma faixa especial"
+      },
+      {
+        id: 3,
+        title: "I can't stop singing",
+        artist: "Teen beach movie",
+        file: "assets/audio/songs/icantstopsinging.mp3",
+        cover: "assets/images/covers/default-cover.svg",
+        duration: "",
+        note: "Mais uma faixa especial"
       }
       // Para adicionar mais músicas, copie o arquivo MP3 para assets/audio/songs/
       // e adicione um novo bloco aqui como no exemplo abaixo:
