@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente do Pelo Branco Anime do Niko -->
+    <linearGradient id="animeWhiteFur" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="65%" stop-color="#fdfbf9"/>
+      <stop offset="100%" stop-color="#f0e6dd"/>
+    </linearGradient>
+
+    <!-- Sombra de Oclusão Anime (Cell-Shading Suave) -->
+    <linearGradient id="animeFurShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5ede6"/>
+      <stop offset="100%" stop-color="#dfcfc2"/>
+    </linearGradient>
+
+    <!-- Olhos Azuis Anime (Estilo Chibi Kawaii com Camadas de Safira e Ciano) -->
+    <linearGradient id="animeEyeIris" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#023e8a"/>
+      <stop offset="35%" stop-color="#0077b6"/>
+      <stop offset="70%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#90e0ef"/>
+    </linearGradient>
+
+    <!-- Cauda Escura / Seal Point do Niko (da foto) -->
+    <linearGradient id="animeDarkTail" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#422a18"/>
+      <stop offset="60%" stop-color="#2a180c"/>
+      <stop offset="100%" stop-color="#140a04"/>
+    </linearGradient>
+
+    <!-- Mancha Marrom da Orelhinha Esquerda (da foto) -->
+    <linearGradient id="animeEarMark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#54371f"/>
+      <stop offset="70%" stop-color="#36200f"/>
+      <stop offset="100%" stop-color="#1f1107"/>
+    </linearGradient>
+
+    <!-- Orelhas Internas Rosadas Fofas -->
+    <linearGradient id="animeInnerEar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffccd5"/>
+      <stop offset="100%" stop-color="#ff8fa3"/>
+    </linearGradient>
+
+    <!-- Sombra Suave no Chão -->
+    <radialGradient id="animeGroundShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0, 0, 0, 0.45)"/>
+      <stop offset="70%" stop-color="rgba(255, 117, 143, 0.15)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+
+    <filter id="animeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Sombra no Chão -->
+  <ellipse cx="170" cy="298" rx="88" ry="16" fill="url(#animeGroundShadow)"/>
+
+  <!-- ==================== CAUDA ESCURA DO NIKO (ANIMADA) ==================== -->
+  <g id="niko-tail" class="niko-tail-group">
+    <path d="M 215 255 C 270 260, 298 215, 280 165 C 270 132, 240 138, 235 156 C 230 176, 252 195, 230 228 C 218 244, 202 254, 192 256" 
+          fill="none" stroke="url(#animeDarkTail)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="242" cy="150" rx="9" ry="8" fill="#1b0f06"/>
+  </g>
+
+  <!-- ==================== CORPO CHIBI BRANCO DO NIKO ==================== -->
+  <g id="niko-body" class="niko-body-breathe" filter="url(#animeGlow)">
+    <!-- Tronco arredondado fofinho -->
+    <ellipse cx="170" cy="242" rx="60" ry="48" fill="url(#animeWhiteFur)"/>
+    <path d="M 120 255 C 135 285, 205 285, 220 255 C 205 272, 135 272, 120 255 Z" fill="url(#animeFurShadow)" opacity="0.6"/>
+
+    <!-- Patinhas Dianteiras Normais -->
+    <g id="niko-paws-normal" class="niko-paws-standard">
+      <!-- Patinha Esquerda -->
+      <g id="niko-paw-left-normal">
+        <ellipse cx="142" cy="284" rx="15" ry="11" fill="#ffffff"/>
+        <ellipse cx="142" cy="285" rx="6" ry="4" fill="#ffb3c1" opacity="0.75"/>
+        <circle cx="135" cy="282" r="2.2" fill="#ffb3c1" opacity="0.75"/>
+        <circle cx="142" cy="280" r="2.2" fill="#ffb3c1" opacity="0.75"/>
+        <circle cx="149" cy="282" r="2.2" fill="#ffb3c1" opacity="0.75"/>
+      </g>
+
+      <!-- Patinha Direita -->
+      <g id="niko-paw-right-normal">
+        <ellipse cx="198" cy="284" rx="15" ry="11" fill="#ffffff"/>
+        <ellipse cx="198" cy="285" rx="6" ry="4" fill="#ffb3c1" opacity="0.75"/>
+        <circle cx="191" cy="282" r="2.2" fill="#ffb3c1" opacity="0.75"/>
+        <circle cx="198" cy="280" r="2.2" fill="#ffb3c1" opacity="0.75"/>
+        <circle cx="205" cy="282" r="2.2" fill="#ffb3c1" opacity="0.75"/>
+      </g>
+    </g>
+
+    <!-- PATINHA ERGUIDA PARA LAMBER (ANIMADA NO MODO LAMBER PATA) -->
+    <g id="niko-paw-raised" class="niko-paw-licking-group" style="opacity: 0; pointer-events: none;">
+      <ellipse cx="152" cy="208" rx="14" ry="12" fill="#ffffff"/>
+      <ellipse cx="152" cy="208" rx="6" ry="4" fill="#ffb3c1" opacity="0.8"/>
+      <circle cx="146" cy="204" r="2" fill="#ffb3c1"/>
+      <circle cx="152" cy="203" r="2" fill="#ffb3c1"/>
+      <circle cx="158" cy="204" r="2" fill="#ffb3c1"/>
+    </g>
+  </g>
+
+  <!-- ==================== COLEIRA ANIME COM PINGENTE ELÉTRICO ==================== -->
+  <path d="M 132 198 Q 170 220 208 198" fill="none" stroke="#d90429" stroke-width="7" stroke-linecap="round"/>
+  <!-- Pingente de Faísca / Talismã de Eletricidade -->
+  <circle cx="170" cy="214" r="8" fill="#ffb703" filter="url(#animeGlow)"/>
+  <circle cx="170" cy="214" r="6" fill="#ffd166"/>
+  <path d="M 170 208 L 166 214 L 170 214 L 169 220 L 174 213 L 170 213 Z" fill="#ffffff"/>
+
+  <!-- ==================== CABEÇA CHIBI ANIME ==================== -->
+  <g id="niko-head" class="niko-head-group" filter="url(#animeGlow)">
+    
+    <!-- ORELHA ESQUERDA (com a manchinha da foto do Niko) -->
+    <g id="niko-left-ear" class="niko-ear-twitch-left">
+      <path d="M 120 144 L 92 64 C 108 72, 140 92, 148 116 Z" fill="url(#animeWhiteFur)"/>
+      <path d="M 92 64 C 102 68, 118 78, 122 92 C 114 86, 102 78, 92 64 Z" fill="url(#animeEarMark)"/>
+      <path d="M 116 132 L 102 85 C 110 92, 130 106, 136 122 Z" fill="url(#animeInnerEar)"/>
+      <path d="M 112 128 L 106 95 C 112 100, 124 110, 128 122 Z" fill="#ffffff" opacity="0.4"/>
+    </g>
+
+    <!-- ORELHA DIREITA -->
+    <g id="niko-right-ear" class="niko-ear-twitch-right">
+      <path d="M 220 144 L 248 64 C 232 72, 200 92, 192 116 Z" fill="url(#animeWhiteFur)"/>
+      <path d="M 224 132 L 238 85 C 230 92, 210 106, 204 122 Z" fill="url(#animeInnerEar)"/>
+      <path d="M 228 128 L 234 95 C 228 100, 216 110, 212 122 Z" fill="#ffffff" opacity="0.4"/>
+    </g>
+
+    <!-- Rosto Redondinho Chibi Anime -->
+    <ellipse cx="170" cy="152" rx="58" ry="48" fill="url(#animeWhiteFur)"/>
+
+    <!-- ==================== OLHOS ANIME KAWAII DO NIKO (AZUIS) ==================== -->
+    <g id="niko-left-eye" class="niko-eye">
+      <path d="M 125 142 C 132 133, 152 133, 159 142" fill="none" stroke="#1f1124" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 157 139 L 163 135" stroke="#1f1124" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="142" cy="151" rx="16" ry="18" fill="#ffffff"/>
+      <ellipse cx="142" cy="152" rx="14" ry="16" fill="url(#animeEyeIris)"/>
+      <ellipse cx="142" cy="153" rx="8" ry="11" fill="#03045e"/>
+      <circle cx="137" cy="144" r="5.5" fill="#ffffff"/>
+      <circle cx="147" cy="158" r="3" fill="#ffffff"/>
+      <polygon points="143,161 144,163 146,164 144,165 143,167 142,165 140,164 142,163" fill="#caf0f8"/>
+    </g>
+
+    <g id="niko-right-eye" class="niko-eye">
+      <path d="M 181 142 C 188 133, 208 133, 215 142" fill="none" stroke="#1f1124" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 213 139 L 219 135" stroke="#1f1124" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="198" cy="151" rx="16" ry="18" fill="#ffffff"/>
+      <ellipse cx="198" cy="152" rx="14" ry="16" fill="url(#animeEyeIris)"/>
+      <ellipse cx="198" cy="153" rx="8" ry="11" fill="#03045e"/>
+      <circle cx="193" cy="144" r="5.5" fill="#ffffff"/>
+      <circle cx="203" cy="158" r="3" fill="#ffffff"/>
+      <polygon points="199,161 200,163 202,164 200,165 199,167 198,165 196,164 198,163" fill="#caf0f8"/>
+    </g>
+
+    <!-- Narizinho Rosa Fofo Anime -->
+    <ellipse cx="170" cy="164" rx="3.5" ry="2.5" fill="#ff758f"/>
+
+    <!-- Boquinha Anime Estilo Gato Kawaii (:3 / ω) -->
+    <path d="M 163 169 Q 170 174 170 169 Q 170 174 177 169" 
+          fill="none" stroke="#5a1827" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Pontinha de linguinha rosada peeking (blep) -->
+    <path id="niko-tongue-standard" d="M 167 171 Q 170 176 173 171 Z" fill="#ff8fa3"/>
+    
+    <!-- Linguinha animada lambendo para o lado -->
+    <path id="niko-tongue-lick" class="niko-tongue-licking" d="M 162 170 Q 154 180 152 195 Q 158 190 164 173 Z" fill="#ff758f" style="opacity: 0;"/>
+
+    <!-- Blush / Bochechas Anime (///) -->
+    <ellipse cx="124" cy="166" rx="9" ry="5.5" fill="#ff758f" opacity="0.38"/>
+    <line x1="120" y1="163" x2="124" y2="169" stroke="#e63946" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+    <line x1="125" y1="163" x2="129" y2="169" stroke="#e63946" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+
+    <ellipse cx="216" cy="166" rx="9" ry="5.5" fill="#ff758f" opacity="0.38"/>
+    <line x1="212" y1="163" x2="216" y2="169" stroke="#e63946" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+    <line x1="217" y1="163" x2="221" y2="169" stroke="#e63946" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+
+    <!-- Bigodes Brancos e Finos Anime -->
+    <path d="M 138 168 Q 100 162 76 166" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+    <path d="M 138 172 Q 100 174 80 182" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+    <path d="M 202 168 Q 240 162 264 166" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+    <path d="M 202 172 Q 240 174 260 182" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9"/>
+  </g>
+
+  <!-- ==================== FIO ELÉTRICO & FAÍSCAS ANIME ==================== -->
+  <g id="niko-play-wire">
+    <path d="M 70 290 Q 110 248 150 275 Q 190 302 230 278 Q 260 258 285 290" 
+          fill="none" stroke="#48cae4" stroke-width="3.5" stroke-dasharray="6,3" opacity="0.85"/>
+    <circle cx="126" cy="258" r="6" fill="#ffb703">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <polygon points="126,248 128,255 136,258 128,261 126,268 124,261 116,258 124,255" fill="#fff3b0">
+      <animateTransform attributeName="transform" type="rotate" from="0 126 258" to="360 126 258" dur="3s" repeatCount="indefinite"/>
+    </polygon>
+    <circle cx="240" cy="272" r="3.5" fill="#64dfdf">
+      <animate attributeName="opacity" values="0.3;0.9;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

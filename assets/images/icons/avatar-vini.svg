@@ -1,0 +1,24 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="viniGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#64dfdf"/>
+      <stop offset="35%" stop-color="#1e3d59"/>
+      <stop offset="80%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#050811"/>
+    </radialGradient>
+    <filter id="glowV">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="150" cy="150" r="140" fill="url(#viniGlow)"/>
+  <circle cx="150" cy="150" r="135" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <circle cx="150" cy="150" r="120" fill="none" stroke="#64dfdf" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <!-- Letter V & LIM4O Badge -->
+  <text x="150" y="170" font-family="'Cinzel', Georgia, serif" font-size="95" font-weight="700" fill="#fff" text-anchor="middle" filter="url(#glowV)">V</text>
+  <text x="150" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="600" fill="#a0e7e5" text-anchor="middle" letter-spacing="3">LIM4O</text>
+  <polygon points="150,60 153,70 163,73 153,76 150,86 147,76 137,73 147,70" fill="#64dfdf"/>
+</svg>

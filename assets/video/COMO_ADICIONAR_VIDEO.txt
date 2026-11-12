@@ -1,0 +1,16 @@
+==============================================================================
+COMO ADICIONAR SEU VÍDEO DA CALL DO DISCORD
+==============================================================================
+
+Para adicionar o vídeo de vocês conversando e zuando em call:
+
+1. Salve seu arquivo de vídeo (em formato MP4, WebM ou MOV) nesta pasta com o nome:
+   call-zuando.mp4
+
+2. Caminho completo:
+   assets/video/call-zuando.mp4
+
+3. O site reconhecerá o vídeo automaticamente e o exibirá dentro da moldura cinematográfica do Discord com controles completos (play, pause, volume, tela cheia).
+
+* Dica: Enquanto você não colocar o arquivo 'call-zuando.mp4', o site exibirá uma moldura interativa charmosa simulando a interface da call de vocês no Discord, com os avatares de vocês dois e o status conectado!
+==============================================================================

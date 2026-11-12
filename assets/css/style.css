@@ -1,0 +1,432 @@
+/* ==============================================================================
+   PROJETO: NOSSO PEQUENO UNIVERSO ❤️
+   Uma homenagem de Vinícius (LIM4O) para Isabelly Lavigne
+   ESTILO PRINCIPAL (style.css)
+   ============================================================================== */
+
+:root {
+  /* Paleta Romântica Sofisticada: Vinho, Escuros Elegantes, Rosa Delicado */
+  --bg-primary: #080306;
+  --bg-secondary: #11050c;
+  --bg-tertiary: #1a0813;
+  --bg-card: rgba(28, 10, 20, 0.65);
+  --bg-card-hover: rgba(42, 14, 30, 0.85);
+
+  --wine-900: #22030b;
+  --wine-800: #380613;
+  --wine-700: #52091c;
+  --wine-600: #730d27;
+  --wine-500: #991335;
+  --wine-400: #c21d45;
+
+  --pink-primary: #ff758f;
+  --pink-light: #ffb3c1;
+  --pink-delicate: #ffccd5;
+  --pink-whisper: #fff0f3;
+
+  /* Eletricidade & Luzes Artísticas */
+  --electric-amber: #ffb703;
+  --electric-cyan: #64dfdf;
+  --electric-blue: #48cae4;
+  --electric-spark: #ffd166;
+  --electric-glow: rgba(255, 117, 143, 0.4);
+
+  /* Tipografia & Contrastes */
+  --text-primary: #ffffff;
+  --text-romantic: #fff0f3;
+  --text-muted: #d9a8b6;
+  --text-dim: #946979;
+  --text-gold: #ffea79;
+
+  /* Bordas & Vidro (Glassmorphism) */
+  --border-glass: rgba(255, 117, 143, 0.22);
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-electric: rgba(255, 183, 3, 0.35);
+  --glass-blur: blur(16px);
+
+  /* Sombras */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 25px rgba(255, 117, 143, 0.28);
+  --shadow-electric: 0 0 20px rgba(100, 223, 223, 0.3);
+
+  /* Fontes */
+  --font-heading: 'Cinzel', Georgia, 'Times New Roman', serif;
+  --font-cursive: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-kanji: 'Noto Serif JP', 'Cinzel', serif;
+
+  /* Transições suaves */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+}
+
+/* Reset Moderno */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-romantic);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.65;
+  background: radial-gradient(circle at 50% 0%, #20040f 0%, #080306 45%, #050104 100%);
+  background-attachment: fixed;
+}
+
+/* Background Canvas Layer (Eletricidade e Partículas) */
+#universe-canvas,
+#circuit-bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#universe-canvas {
+  opacity: 0.8;
+}
+
+#circuit-bg-canvas {
+  opacity: 0.35;
+}
+
+/* Seleção de Texto */
+::selection {
+  background: var(--wine-600);
+  color: var(--pink-whisper);
+}
+
+/* Barra de Rolagem Personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--wine-700), var(--wine-500));
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--wine-500), var(--pink-primary));
+}
+
+/* Tipografia Base */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-romantic);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+a {
+  color: var(--pink-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--pink-light);
+}
+
+/* Japanese Badge Decorativo */
+.kanji-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-kanji);
+  font-size: 0.9rem;
+  color: var(--pink-light);
+  background: rgba(255, 117, 143, 0.1);
+  border: 1px solid rgba(255, 117, 143, 0.25);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+}
+
+.kanji-tag .kanji-char {
+  font-size: 1.1rem;
+  color: var(--electric-spark);
+  font-weight: bold;
+}
+
+/* Container de Layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.container-narrow {
+  max-width: 860px;
+}
+
+/* Seções Padrão */
+.site-section {
+  padding: 110px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--pink-primary);
+  margin-bottom: 14px;
+}
+
+.section-eyebrow i {
+  color: var(--electric-amber);
+  font-size: 0.8rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, #ffffff 20%, var(--pink-delicate) 60%, var(--pink-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(255, 117, 143, 0.25);
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 22px auto 0;
+}
+
+.section-divider-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-glass), transparent);
+}
+
+.section-divider-icon {
+  color: var(--pink-primary);
+  font-size: 14px;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Botões Românticos & Interativos */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-smooth);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--wine-600) 0%, var(--wine-500) 50%, var(--wine-400) 100%);
+  color: #ffffff;
+  border-color: rgba(255, 117, 143, 0.4);
+  box-shadow: 0 4px 22px rgba(186, 24, 62, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+  border-color: var(--pink-primary);
+  box-shadow: 0 6px 30px rgba(255, 117, 143, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--pink-whisper);
+  border-color: var(--border-glass);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 117, 143, 0.15);
+  color: #ffffff;
+  border-color: var(--pink-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(255, 117, 143, 0.25);
+}
+
+.btn-electric {
+  background: linear-gradient(135deg, rgba(255, 183, 3, 0.15), rgba(100, 223, 223, 0.15));
+  color: #ffffff;
+  border-color: var(--electric-amber);
+  box-shadow: 0 0 20px rgba(255, 183, 3, 0.25);
+}
+
+.btn-electric:hover {
+  background: linear-gradient(135deg, rgba(255, 183, 3, 0.3), rgba(100, 223, 223, 0.3));
+  border-color: var(--electric-spark);
+  box-shadow: 0 0 30px rgba(255, 183, 3, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Efeito de Reflexo de Luz no Botão */
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: rotate(25deg);
+  transition: all 0.75s ease;
+}
+
+.btn-shimmer:hover::after {
+  left: 120%;
+}
+
+/* Cartões com Efeito de Vidro */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 117, 143, 0.45);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Animações Globais */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px var(--pink-primary));
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px var(--pink-primary));
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes electricPulse {
+  0%, 100% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 2px var(--electric-spark));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--electric-cyan));
+  }
+}
+
+/* Toast de Notificação Romântico */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(20, 6, 14, 0.95);
+  border: 1px solid var(--pink-primary);
+  color: var(--pink-whisper);
+  padding: 14px 26px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 117, 143, 0.3);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.toast-notification.active {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+

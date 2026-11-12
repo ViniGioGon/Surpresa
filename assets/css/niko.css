@@ -1,0 +1,428 @@
+/* ==============================================================================
+   PROJETO: NOSSO PEQUENO UNIVERSO ❤️
+   Uma homenagem de Vinícius (LIM4O) para Isabelly Lavigne
+   NOSSO GATINHO NIKO — MASCOTE CHIBI ANIME (niko.css)
+   ============================================================================== */
+
+/* Container Principal do Niko (Mascote Flutuante & Interativo) */
+#niko-companion {
+  position: fixed;
+  bottom: 20px;
+  right: 28px;
+  width: 135px;
+  height: 135px;
+  z-index: 1000;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.8s ease, bottom 0.8s ease, opacity 0.4s ease;
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.65));
+}
+
+#niko-companion:hover {
+  transform: translateY(-8px) scale(1.06);
+}
+
+/* Ilustração / SVG do Niko */
+.niko-avatar-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.niko-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  pointer-events: none;
+}
+
+/* ANIMAÇÃO 1: Balanço da Cauda Escura */
+.niko-tail-group {
+  transform-origin: 215px 255px;
+  animation: nikoTailWag 3.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  will-change: transform;
+}
+
+@keyframes nikoTailWag {
+  0% { transform: rotate(-10deg); }
+  50% { transform: rotate(14deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+/* ANIMAÇÃO 2: Piscar Anime Kawaii com Pálpebra Dupla */
+.niko-eye {
+  transform-origin: center;
+  animation: nikoAnimeBlink 5s infinite;
+  will-change: transform;
+}
+
+@keyframes nikoAnimeBlink {
+  0%, 92%, 96%, 100% { transform: scaleY(1); }
+  94% { transform: scaleY(0.08); }
+  98% { transform: scaleY(0.08); }
+}
+
+/* ANIMAÇÃO 3: Tremular Fofo das Orelhinhas Anime */
+.niko-ear-twitch-left {
+  transform-origin: 120px 144px;
+  animation: earTwitchLeft 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes earTwitchLeft {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  90% { transform: rotate(-8deg); }
+  92% { transform: rotate(4deg); }
+  94% { transform: rotate(0deg); }
+}
+
+.niko-ear-twitch-right {
+  transform-origin: 220px 144px;
+  animation: earTwitchRight 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes earTwitchRight {
+  0%, 85%, 100% { transform: rotate(0deg); }
+  87% { transform: rotate(7deg); }
+  89% { transform: rotate(-3deg); }
+  91% { transform: rotate(0deg); }
+}
+
+/* Respiração Suave do Corpinho Anime */
+.niko-body-breathe {
+  transform-origin: 170px 242px;
+  animation: nikoBreathe 3.4s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes nikoBreathe {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.025) translateY(-1px); }
+}
+
+/* ANIMAÇÃO 4: Modo Brincando com Faísca / Fio */
+#niko-companion.playing #niko-play-wire {
+  animation: wireGlowPulse 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes wireGlowPulse {
+  0% { filter: drop-shadow(0 0 2px #48cae4); opacity: 0.7; }
+  100% { filter: drop-shadow(0 0 10px #ffb703); opacity: 1; }
+}
+
+/* ANIMAÇÃO 5: Salto de Alegria ao Interagir */
+#niko-companion.jump-happy {
+  animation: nikoHappyJump 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes nikoHappyJump {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-28px) scale(1.15) rotate(-4deg); }
+  70% { transform: translateY(-8px) scale(1.05) rotate(3deg); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ANIMAÇÃO: Lambendo a Patinha Fofa (Paw Licking) */
+#niko-companion.licking-paw #niko-head {
+  animation: nikoHeadLickTilt 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes nikoHeadLickTilt {
+  0% { transform: rotate(0deg) translateY(0); }
+  100% { transform: rotate(-7deg) translateY(5px); }
+}
+
+#niko-companion.licking-paw #niko-paw-left-normal {
+  opacity: 0 !important;
+}
+
+#niko-companion.licking-paw #niko-paw-raised {
+  opacity: 1 !important;
+  animation: nikoPawLickingMotion 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes nikoPawLickingMotion {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-5px) rotate(6deg); }
+}
+
+#niko-companion.licking-paw #niko-tongue-standard {
+  opacity: 0 !important;
+}
+
+#niko-companion.licking-paw #niko-tongue-lick {
+  opacity: 1 !important;
+  animation: nikoTongueLickMotion 0.3s ease-in-out infinite alternate;
+}
+
+@keyframes nikoTongueLickMotion {
+  0% { transform: scale(0.9); }
+  100% { transform: scale(1.15) translateY(2px); }
+}
+
+/* ANIMAÇÃO 6: Passeio Suave pelo Rodapé (Stroll) */
+#niko-companion.walking {
+  animation: nikoWalkBob 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes nikoWalkBob {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+/* ANIMAÇÃO 7: Modo Soneca / Dormindo perto da Carta */
+#niko-companion.sleeping .niko-img {
+  filter: brightness(0.85) contrast(0.92);
+  transform: scaleY(0.92) translateY(6px);
+}
+
+.niko-zzz {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--pink-light);
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#niko-companion.sleeping .niko-zzz {
+  animation: zzzFloat 2.8s infinite ease-in;
+}
+
+@keyframes zzzFloat {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.6); }
+  50% { opacity: 0.95; transform: translate(14px, -18px) scale(1); }
+  100% { opacity: 0; transform: translate(26px, -36px) scale(1.3); }
+}
+
+/* Balão de Fala do Niko */
+#niko-speech-bubble {
+  position: absolute;
+  bottom: 125%;
+  right: -10px;
+  width: 255px;
+  background: rgba(22, 7, 16, 0.96);
+  border: 1px solid var(--pink-primary);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  color: var(--pink-whisper);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 25px rgba(255, 117, 143, 0.3);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1010;
+}
+
+#niko-speech-bubble.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+#niko-speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  right: 48px;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid var(--pink-primary);
+}
+
+.niko-bubble-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--electric-amber);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.niko-bubble-text {
+  font-family: var(--font-body);
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Partículas de Carinho / Ronrom / Faíscas */
+.niko-heart-particle {
+  position: absolute;
+  font-size: 16px;
+  color: var(--pink-primary);
+  pointer-events: none;
+  animation: nikoHeartFloat 1.8s ease-out forwards;
+  z-index: 1020;
+}
+
+@keyframes nikoHeartFloat {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.6);
+  }
+  50% {
+    transform: translate(calc(var(--rand-x, 0px) * 0.5), -35px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--rand-x, 0px), -75px) scale(0.8);
+  }
+}
+
+/* Barra de Controle do Mascote (Discreta e Acessível) */
+.niko-controls-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 172px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 6, 14, 0.88);
+  border: 1px solid var(--border-glass);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  transition: all var(--transition-smooth);
+  opacity: 0.9;
+}
+
+.niko-controls-bar:hover {
+  opacity: 1;
+  border-color: var(--pink-primary);
+  box-shadow: 0 4px 25px rgba(255, 117, 143, 0.3);
+}
+
+.niko-btn-pill {
+  background: transparent;
+  border: none;
+  color: var(--pink-delicate);
+  font-size: 0.82rem;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  transition: all var(--transition-fast);
+}
+
+.niko-btn-pill:hover {
+  background: rgba(255, 117, 143, 0.2);
+  color: #ffffff;
+}
+
+.niko-btn-pill.active {
+  background: var(--wine-600);
+  color: #ffffff;
+}
+
+/* Cartão Informativo de Destaque do Niko */
+.niko-spotlight-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: linear-gradient(135deg, rgba(38, 10, 24, 0.75) 0%, rgba(14, 4, 10, 0.95) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 38px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.niko-spotlight-card::before {
+  content: '🐾';
+  position: absolute;
+  right: 15px;
+  bottom: -15px;
+  font-size: 120px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.niko-spotlight-avatar {
+  width: 145px;
+  height: 145px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 117, 143, 0.22) 0%, transparent 70%);
+  border: 2px solid var(--pink-primary);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(255, 117, 143, 0.35);
+}
+
+.niko-spotlight-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.niko-spotlight-info h3 {
+  font-size: 1.65rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.niko-spotlight-role {
+  color: var(--electric-amber);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.niko-spotlight-bio {
+  color: var(--text-romantic);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+/* Ninho do Niko: Ponto seguro onde ele pode aparecer em outras seções */
+.niko-section-nest {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Suporte a Usuários com Preferência por Movimento Reduzido (Acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  #niko-companion,
+  .niko-tail-group,
+  .niko-eye,
+  .niko-ear-twitch-left,
+  .niko-ear-twitch-right,
+  .niko-body-breathe,
+  #niko-companion.jump-happy,
+  #niko-companion.walking,
+  .niko-zzz,
+  .niko-heart-particle {
+    animation: none !important;
+    transition: none !important;
+  }
+}

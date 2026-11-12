@@ -1,0 +1,28 @@
+==============================================================================
+COMO ADICIONAR SUAS FOTOS REAIS NESTA PASTA
+==============================================================================
+
+Para colocar as fotos reais de vocês e do Niko:
+
+1. FORMA MAIS FÁCIL (SUBSTITUIÇÃO DIRETA):
+   - Salve suas fotos reais nesta pasta com os seguintes nomes (em formato JPG, PNG ou SVG):
+     * photo1.jpg (ou mantenha photo1.svg)
+     * photo2.jpg
+     * photo3.jpg (Foto do Niko!)
+     * photo4.jpg
+     * photo5.jpg
+     * photo6.jpg
+
+2. ATUALIZAR NO ARQUIVO CONFIG.JS:
+   - Abra o arquivo 'assets/js/config.js'.
+   - Vá até a seção 'gallery'.
+   - Altere o campo 'src' para o nome da sua foto, por exemplo:
+     src: "assets/images/gallery/minha-foto-com-a-isa.jpg"
+   - Você também pode alterar o título, a data e a legenda carinhosa da foto!
+
+3. FOTO REAL DO NIKO NO MASCOTE:
+   - Se quiser que o gatinho animado utilize uma foto real do Niko, salve a foto dele como:
+     assets/images/niko/niko-real.jpg
+   - No arquivo 'assets/js/config.js', dentro da seção 'niko', mude:
+     customPhoto: "assets/images/niko/niko-real.jpg"
+==============================================================================

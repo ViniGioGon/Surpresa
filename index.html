@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Nosso Pequeno Universo ❤️ | Vinícius &amp; Isabelly</title>
+    <meta
+      name="description"
+      content="Uma homenagem interativa, sofisticada e romântica de Vinícius (LIM4O) para Isabelly Lavigne."
+    />
+
+    <!-- Google Fonts: Elegância Clássica, Poética e Moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Serif+JP:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6 Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Estilos Modulares -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/electricity.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/niko.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <link
+      rel="icon"
+      href="assets/images/icons/wax-seal.svg"
+      type="image/svg+xml"
+    />
+  </head>
+  <body>
+    <!-- =========================================================================
+       0. PÁGINA / TELA DE ENTRADA: "SURPRESA" (Desbloqueia Autoplay & Experiência)
+       ========================================================================= -->
+    <div id="welcome-surprise-screen" class="welcome-screen">
+      <div class="welcome-screen-backdrop"></div>
+      <div class="welcome-container">
+        <div class="welcome-tag">
+          <span class="kanji-char">大切な人</span>
+          <span>Para Isabelly Lavigne</span>
+        </div>
+
+        <h1 class="welcome-heading">Nosso Pequeno Universo</h1>
+        <p class="welcome-subheading">
+          Uma homenagem criada com todo o meu amor e carinho por Vinícius
+          (LIM4O)
+        </p>
+
+        <div class="surprise-btn-wrapper">
+          <button
+            id="entry-surprise-btn"
+            class="btn-surprise-glow"
+            aria-label="Abrir Surpresa"
+          >
+            <span class="surprise-btn-sparkle-left">✨</span>
+            <span class="surprise-btn-text">Surpresa</span>
+            <span class="surprise-btn-heart">❤️</span>
+          </button>
+          <div class="surprise-btn-hint">
+            <i class="fa-solid fa-volume-high"></i>
+            <span>Toque para entrar e ouvir nossa música</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Camadas de Fundo em Canvas: Constelações, Eletricidade & Faíscas -->
+    <canvas id="universe-canvas"></canvas>
+    <canvas id="circuit-bg-canvas"></canvas>
+
+    <!-- Pílula Rastreadora de Descobertas / Quest do Casal -->
+    <div
+      id="quest-tracker-pill"
+      class="quest-tracker-pill"
+      title="Clique para ver o progresso dos segredos do casal!"
+    >
+      <i class="fa-solid fa-heart" style="color: var(--pink-primary)"></i>
+      <span>Segredos: <strong id="quest-count">0</strong>/5</span>
+    </div>
+
+    <!-- =========================================================================
+       1. TELA INICIAL CINEMATOGRÁFICA
+       ========================================================================= -->
+    <header class="hero-section" id="inicio">
+      <div class="hero-content">
+        <div class="hero-kanji-pill">
+          <span class="char">運命</span>
+          <span>(Unmei) • Destino que nos uniu</span>
+        </div>
+
+        <div class="hero-title-prefix">二人の物語 • A história de nós dois</div>
+
+        <h1 class="hero-main-name">ISABELLY LAVIGNE</h1>
+
+        <div class="hero-dedication-tag">
+          <span>Uma homenagem de <strong>Vinícius (LIM4O)</strong></span>
+          <span class="hero-discord-badge">
+            <i class="fa-brands fa-discord"></i>
+            <span>Discord • 08/03/2026</span>
+          </span>
+        </div>
+
+        <p class="hero-quote">
+          "Entre bilhões de possibilidades no universo digital, nossas linhas
+          convergiram. Uma faísca sincera que se transformou na conexão mais
+          bonita e radiante da minha vida."
+        </p>
+
+        <div class="hero-actions">
+          <a href="#historia" class="btn btn-primary btn-shimmer">
+            <i class="fa-solid fa-heart"></i>
+            <span>Entrar no Nosso Universo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Indicador de Rolagem Suave -->
+      <a
+        href="#apresentacao"
+        class="hero-scroll-indicator"
+        aria-label="Rolar para baixo"
+      >
+        <span>Descobrir</span>
+        <i class="fa-solid fa-chevron-down scroll-chevron"></i>
+      </a>
+    </header>
+
+    <main>
+      <!-- =========================================================================
+         2. APRESENTAÇÃO DE ISABELLY & VINÍCIUS (LIM4O)
+         ========================================================================= -->
+      <section class="site-section" id="apresentacao">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Dois Polos • Uma Única Sintonia</span>
+            </div>
+            <h2 class="section-title">Isabelly &amp; Vinícius</h2>
+            <p class="section-subtitle">
+              Como na física dos circuitos, duas forças que se complementam
+              perfeitamente para gerar luz e calor contínuo.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-heart section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <div class="couple-grid">
+            <!-- Card de Isabelly -->
+            <div class="couple-card her circuit-border">
+              <div class="couple-avatar-frame">
+                <img
+                  id="her-avatar"
+                  src="assets/images/icons/avatar-isa.svg"
+                  alt="Isabelly Lavigne"
+                  class="couple-avatar-img"
+                />
+              </div>
+              <h3 id="her-name" class="couple-name">Isabelly Lavigne</h3>
+              <div id="her-nickname" class="couple-nickname">Isa • Ela</div>
+              <p id="her-tag" class="couple-tagline">
+                "A luz e a doçura do meu universo"
+              </p>
+              <p id="her-bio" class="couple-bio">
+                Dona de um sorriso que desarma qualquer dia cinza e com quem
+                cada conversa parece voar no tempo. A pessoa que torna o mundo
+                muito mais bonito de se viver.
+              </p>
+            </div>
+
+            <!-- Ponte Elétrica & Orbe de Ressonância -->
+            <div class="couple-bridge-container">
+              <div class="couple-bridge-wire"></div>
+              <div class="couple-bridge-core">
+                <div
+                  class="bridge-resonance-orb"
+                  id="resonance-orb"
+                  title="Clique para gerar um pulso de energia!"
+                >
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <span class="bridge-resonance-label">繋がり (Conexão)</span>
+              </div>
+              <div class="couple-bridge-wire"></div>
+            </div>
+
+            <!-- Card de Vinícius (LIM4O) -->
+            <div class="couple-card him circuit-border">
+              <div class="couple-avatar-frame">
+                <img
+                  id="his-avatar"
+                  src="assets/images/icons/avatar-vini.svg"
+                  alt="Vinícius LIM4O"
+                  class="couple-avatar-img"
+                />
+              </div>
+              <h3 id="his-name" class="couple-name">Vinícius</h3>
+              <div id="his-nickname" class="couple-nickname">LIM4O • Ele</div>
+              <p id="his-tag" class="couple-tagline">
+                "Fascinado por eletricidade e por você"
+              </p>
+              <p id="his-bio" class="couple-bio">
+                Alguém que encontrou na física e na eletricidade um fascínio
+                pelo funcionamento do mundo — mas descobriu em você a única
+                atração que nenhuma fórmula matemática consegue mensurar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         3. NOSSA HISTÓRIA (NARRATIVA & METÁFORAS ELÉTRICAS)
+         ========================================================================= -->
+      <section class="site-section" id="historia">
+        <div class="container container-narrow">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-brands fa-discord"></i>
+              <span>08/03/2026 • O Início de Tudo</span>
+            </div>
+            <h2 class="section-title">Nossa História</h2>
+            <p class="section-subtitle">
+              Quando duas pessoas se cruzam no vasto mundo digital e descobrem
+              que pertencem ao mesmo compasso.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-bolt section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <div class="story-wrapper circuit-border">
+            <div class="story-lead">
+              "Foi no dia 08 de março de 2026 que o Discord deixou de ser apenas
+              um aplicativo de conversas e se tornou o palco do nosso primeiro
+              olá."
+            </div>
+
+            <div class="story-body">
+              <p>
+                Tudo começou de forma leve e despretensiosa. Uma notificação que
+                chegou, uma resposta que veio acompanhada de riso fácil e, de
+                repente, perceber que as horas simplesmente deixavam de importar
+                quando estávamos conversando.
+              </p>
+              <p>
+                Estudando eletricidade, aprendemos que para uma lâmpada acender
+                é necessário que um circuito esteja completo e perfeitamente
+                equilibrado. Com você, Isabelly, foi exatamente assim: sem
+                forçar, sem interferências, nossa conexão fechou um circuito
+                espontâneo onde cada mensagem sua trazia uma dose de
+                tranquilidade e alegria sincera.
+              </p>
+              <p>
+                Não precisou de fórmulas complexas: apenas duas pessoas
+                descobrindo carinho mútuo, afinidades verdadeiras e a companhia
+                especial do nosso gatinho Niko, que fez o nosso universo ficar
+                ainda mais completo e acolhedor.
+              </p>
+            </div>
+          </div>
+
+          <!-- Metáforas da Eletricidade Integradas -->
+          <div class="metaphors-grid" id="metaphors-grid">
+            <!-- Preenchido via app.js -->
+          </div>
+
+          <!-- Palavras Japonesas Autênticas -->
+          <div style="margin-top: 40px; text-align: center">
+            <h4
+              style="
+                font-size: 1.1rem;
+                color: var(--text-muted);
+                margin-bottom: 16px;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+              "
+            >
+              Expressões do Nosso Sentimento
+            </h4>
+            <div
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+              "
+              id="japanese-phrases-list"
+            >
+              <!-- Preenchido via app.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         4. LINHA DO TEMPO INTERATIVA
+         ========================================================================= -->
+      <section class="site-section" id="linha-do-tempo">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-solid fa-timeline"></i>
+              <span>Nossos Passos Juntos</span>
+            </div>
+            <h2 class="section-title">Linha do Tempo</h2>
+            <p class="section-subtitle">
+              Cada marco registrado com carinho, começando pelo instante exato
+              em que começamos a conversar.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-heart section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <div class="timeline-container">
+            <div class="timeline-spine"></div>
+            <div id="timeline-items">
+              <!-- Preenchido dinamicamente via timeline.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         ESPAÇO DEDICADO: VÍDEO DA CALL NO DISCORD (MEMÓRIAS ZUANDO EM CALL)
+         ========================================================================= -->
+      <section class="site-section" id="video-call">
+        <div class="container container-narrow">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-brands fa-discord"></i>
+              <span>Discord Voice • Momentos Reais</span>
+            </div>
+            <h2 class="section-title">Nossas Madrugadas em Call 🎧</h2>
+            <p class="section-subtitle">
+              Aquele momento único em que a gente perdia a noção da hora
+              conversando, rindo sem parar e dividindo a vida.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-headset section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <div class="discord-theater-card circuit-border">
+            <div class="discord-status-bar">
+              <div class="discord-bar-left">
+                <span class="discord-live-dot"></span>
+                <i class="fa-brands fa-discord"></i>
+                <span>Canal de Voz: Nosso Cantinho Privado</span>
+              </div>
+              <div class="discord-bar-right">
+                <span
+                  ><i class="fa-solid fa-signal" style="color: #2ecc71"></i> 12
+                  ms</span
+                >
+                <span>Áudio HD 96kbps</span>
+              </div>
+            </div>
+
+            <div class="discord-video-wrapper">
+              <!-- Vídeo Real Local -->
+              <video
+                id="call-video-player"
+                class="discord-video-element"
+                controls
+                preload="metadata"
+                poster="assets/images/gallery/photo1.svg"
+              >
+                <source src="assets/video/call-zuando.mp4" type="video/mp4" />
+                Seu navegador não suporta a tag de vídeo.
+              </video>
+
+              <!-- Mockup Interativo da Call quando o vídeo não está presente -->
+              <div id="discord-mockup-overlay" class="discord-call-mockup">
+                <div class="discord-mockup-avatars">
+                  <div class="discord-voice-user">
+                    <div class="discord-voice-avatar-frame">
+                      <img
+                        src="assets/images/icons/avatar-isa.svg"
+                        alt="Isabelly"
+                      />
+                    </div>
+                    <span class="discord-voice-name">Isabelly</span>
+                    <span class="discord-voice-tag"
+                      ><i class="fa-solid fa-microphone"></i> Falando...</span
+                    >
+                  </div>
+
+                  <div style="color: var(--pink-primary); font-size: 26px">
+                    <i class="fa-solid fa-bolt"></i>
+                  </div>
+
+                  <div class="discord-voice-user">
+                    <div class="discord-voice-avatar-frame">
+                      <img
+                        src="assets/images/icons/avatar-vini.svg"
+                        alt="Vinícius"
+                      />
+                    </div>
+                    <span class="discord-voice-name">LIM4O</span>
+                    <span class="discord-voice-tag"
+                      ><i class="fa-solid fa-microphone"></i> Falando...</span
+                    >
+                  </div>
+                </div>
+
+                <p class="discord-call-quote">
+                  "A risada mais gostosa de ouvir no fone de ouvido até a
+                  madrugada..."
+                </p>
+
+                <div class="discord-video-placeholder-hint">
+                  <i class="fa-solid fa-video"></i>
+                  <span
+                    >Espaço reservado: salve seu vídeo como
+                    <strong>assets/video/call-zuando.mp4</strong>!</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         5. CONTADOR DESDE A NOSSA PRIMEIRA CONVERSA
+         ========================================================================= -->
+      <section class="site-section" id="contador">
+        <div class="container container-narrow">
+          <div class="counter-box circuit-border">
+            <div class="section-eyebrow" style="color: var(--electric-amber)">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span>Tempo de Conexão</span>
+            </div>
+
+            <h2
+              id="counter-title"
+              class="section-title"
+              style="margin-bottom: 10px"
+            >
+              Desde a nossa primeira conversa.
+            </h2>
+
+            <p
+              id="counter-desc"
+              class="section-subtitle"
+              style="font-size: 1rem"
+            >
+              Contando cada fração de segundo desde o momento exato em que
+              nossas mensagens se cruzaram no Discord em 08/03/2026.
+            </p>
+
+            <div class="counter-grid">
+              <div class="counter-tile">
+                <div id="count-days" class="counter-number">00</div>
+                <div class="counter-label">Dias</div>
+              </div>
+              <div class="counter-tile">
+                <div id="count-hours" class="counter-number">00</div>
+                <div class="counter-label">Horas</div>
+              </div>
+              <div class="counter-tile">
+                <div id="count-minutes" class="counter-number">00</div>
+                <div class="counter-label">Minutos</div>
+              </div>
+              <div class="counter-tile">
+                <div id="count-seconds" class="counter-number">00</div>
+                <div class="counter-label">Segundos</div>
+              </div>
+            </div>
+
+            <!-- Métricas Românticas Adicionais -->
+            <div class="stats-row">
+              <div class="stat-item">
+                <div id="stat-total-hours" class="stat-item-value">0h</div>
+                <div class="stat-item-desc">Horas iluminando meus dias</div>
+              </div>
+              <div class="stat-item">
+                <div id="stat-heartbeats" class="stat-item-value">0</div>
+                <div class="stat-item-desc">
+                  Batimentos cardíacos sincronizados
+                </div>
+              </div>
+              <div class="stat-item">
+                <div id="stat-energy-cycles" class="stat-item-value">0 Hz</div>
+                <div class="stat-item-desc">Ciclos de sintonia contínua</div>
+              </div>
+            </div>
+
+            <p id="counter-disclaimer" class="counter-disclaimer">
+              Esta data celebra o primeiro instante em que começamos a nos falar
+              — o ponto de partida de tudo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         6. CARTA ROMÂNTICA PERSONALIZADA (LACRE DE CERA)
+         ========================================================================= -->
+      <section class="site-section" id="carta">
+        <div class="container container-narrow">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-solid fa-stamp"></i>
+              <span>Correspondência Especial</span>
+            </div>
+            <h2 class="section-title">Uma Carta Para Você</h2>
+            <p class="section-subtitle">
+              Palavras sinceras guardadas sob um lacre vermelho, esperando para
+              serem lidas com calma.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i
+                class="fa-solid fa-envelope-open-text section-divider-icon"
+              ></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <div class="letter-envelope-wrapper">
+            <!-- Botão do Lacre de Cera -->
+            <div class="wax-seal-trigger" id="wax-seal-trigger">
+              <button
+                class="wax-seal-btn"
+                id="wax-seal-btn"
+                title="Romper o lacre de cera"
+              >
+                <img
+                  src="assets/images/icons/wax-seal.svg"
+                  alt="Lacre de Cera V&amp;I"
+                />
+              </button>
+              <div class="wax-seal-hint">
+                <i class="fa-solid fa-hand-pointer"></i>
+                <span>Toque no lacre para abrir</span>
+              </div>
+            </div>
+
+            <!-- Pergaminho da Carta (Revelado ao Clicar) -->
+            <article
+              class="letter-parchment circuit-border"
+              id="letter-parchment"
+            >
+              <header class="letter-header">
+                <div class="letter-japanese-header" id="letter-jp-header">
+                  大切な人へ — Para a pessoa mais especial
+                </div>
+                <h3 class="letter-title" id="letter-title">
+                  Para Isabelly Lavigne, com todo o meu coração
+                </h3>
+                <div class="letter-date-stamp" id="letter-date-stamp">
+                  Desde 08/03/2026 até o infinito
+                </div>
+              </header>
+
+              <div class="letter-content" id="letter-paragraphs">
+                <!-- Preenchido via app.js a partir do config.js -->
+              </div>
+
+              <footer class="letter-closing">
+                <div id="letter-closing">
+                  Com todo o meu carinho, admiração e amor,
+                </div>
+                <div class="letter-signature" id="letter-signature">
+                  Vinícius (LIM4O)
+                </div>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         7. PLAYER PRINCIPAL (GLUE SONG) & 8. PLAYLIST COMPLETA
+         ========================================================================= -->
+      <section class="site-section" id="musica">
+        <div class="container container-narrow">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-solid fa-music"></i>
+              <span>Nossa Trilha Sonora</span>
+            </div>
+            <h2 class="section-title">Música &amp; Playlist</h2>
+            <p class="section-subtitle">
+              Canções que traduzem a sensação de estar perto de você, com
+              destaque especial para Glue Song.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-compact-disc section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <!-- Card Principal da Glue Song -->
+          <div class="music-hero-card circuit-border">
+            <div class="vinyl-deck">
+              <div class="vinyl-disk" id="vinyl-disk">
+                <img
+                  id="player-track-cover"
+                  src="assets/images/covers/glue-song.svg"
+                  alt="Glue Song"
+                  class="vinyl-cover-thumb"
+                />
+                <div class="vinyl-center-hole"></div>
+              </div>
+            </div>
+
+            <div class="player-details">
+              <div class="kanji-tag" style="margin-bottom: 10px">
+                <span class="kanji-char">愛</span>
+                <span>Tema Principal • beabadoobee</span>
+              </div>
+
+              <h3 id="player-track-title">Glue Song</h3>
+              <div id="player-track-artist" class="player-artist">
+                beabadoobee
+              </div>
+
+              <div class="player-quote-box">
+                <div class="player-quote-text">
+                  "I've never known someone like you... Tangled in love, stuck
+                  by you from the glue."
+                </div>
+                <div class="player-quote-sub">
+                  "Nunca conheci alguém como você... Preso no amor, colado a
+                  você como cola."
+                </div>
+              </div>
+
+              <!-- Barra de Progresso do Áudio -->
+              <div class="player-scrubber-wrapper">
+                <span id="player-current-time" class="player-time">00:00</span>
+                <div id="player-scrubber" class="player-scrubber">
+                  <div
+                    id="player-scrubber-filled"
+                    class="player-scrubber-filled"
+                  ></div>
+                </div>
+                <span id="player-duration" class="player-time">02:15</span>
+              </div>
+
+              <!-- Controles do Player -->
+              <div class="player-controls">
+                <div class="player-buttons-main">
+                  <button
+                    id="player-shuffle-btn"
+                    class="control-btn"
+                    title="Aleatório"
+                  >
+                    <i class="fa-solid fa-shuffle"></i>
+                  </button>
+                  <button
+                    id="player-prev-btn"
+                    class="control-btn"
+                    title="Anterior"
+                  >
+                    <i class="fa-solid fa-backward-step"></i>
+                  </button>
+                  <button
+                    id="player-play-btn"
+                    class="control-btn play-pause-btn"
+                    title="Reproduzir / Pausar"
+                  >
+                    <i class="fa-solid fa-play"></i>
+                  </button>
+                  <button
+                    id="player-next-btn"
+                    class="control-btn"
+                    title="Próxima"
+                  >
+                    <i class="fa-solid fa-forward-step"></i>
+                  </button>
+                  <button
+                    id="player-repeat-btn"
+                    class="control-btn active"
+                    title="Repetir"
+                  >
+                    <i class="fa-solid fa-repeat"></i>
+                  </button>
+                </div>
+
+                <!-- Volume -->
+                <div class="player-volume-wrapper">
+                  <i
+                    id="player-volume-icon"
+                    class="fa-solid fa-volume-high"
+                    style="color: var(--pink-primary); cursor: pointer"
+                  ></i>
+                  <input
+                    type="range"
+                    id="player-volume"
+                    class="volume-slider"
+                    min="0"
+                    max="100"
+                    value="80"
+                  />
+                </div>
+              </div>
+
+              <!-- Visualizador de Áudio (Canvas) -->
+              <canvas id="audio-visualizer-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Gaveta de Playlist Completa -->
+          <div class="playlist-drawer">
+            <h4>
+              <i
+                class="fa-solid fa-list-ul"
+                style="color: var(--pink-primary)"
+              ></i>
+              <span>Faixas da Playlist</span>
+            </h4>
+            <ul id="playlist-tracks" class="playlist-tracks-list">
+              <!-- Preenchido dinamicamente via player.js -->
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         9. GALERIA DE FOTOGRAFIAS REAIS
+         ========================================================================= -->
+      <section class="site-section" id="galeria">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-solid fa-camera-retro"></i>
+              <span>Nossos Registros</span>
+            </div>
+            <h2 class="section-title">Galeria de Memórias</h2>
+            <p class="section-subtitle">
+              Cada clique guarda um segundo precioso da nossa história e do
+              nosso gatinho Niko.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-heart section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <!-- Filtros de Categoria -->
+          <div class="gallery-filters" id="gallery-filters"></div>
+
+          <!-- Grade de Fotos -->
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         10. CARTAS E ARCANOS DE TAROT DO NOSSO DESTINO
+         ========================================================================= -->
+      <section class="site-section" id="segredos">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>Arcanos do Destino • 運命のタロット</span>
+            </div>
+            <h2 class="section-title">Cartas de Tarot do Nosso Destino</h2>
+            <p class="section-subtitle">
+              Inspiradas no mistério clássico do Tarot, cada arcano guarda um
+              pensamento sincero sobre nós dois e a força da nossa conexão.
+            </p>
+            <div class="section-divider">
+              <span class="section-divider-line"></span>
+              <i class="fa-solid fa-sparkles section-divider-icon"></i>
+              <span class="section-divider-line"></span>
+            </div>
+          </div>
+
+          <div class="secrets-grid" id="secrets-grid"></div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         DESTAQUE: NOSSO GATINHO NIKO (CARD ESPECIAL)
+         ========================================================================= -->
+      <section
+        class="site-section"
+        id="niko-spotlight"
+        style="padding-top: 20px"
+      >
+        <div class="container container-narrow">
+          <div class="niko-spotlight-card circuit-border">
+            <div class="niko-spotlight-avatar">
+              <img
+                src="assets/images/niko/niko.svg"
+                alt="Niko"
+                id="niko-spotlight-img"
+              />
+            </div>
+            <div class="niko-spotlight-info">
+              <h3>
+                <span>Niko</span>
+                <span class="kanji-tag"
+                  ><span class="kanji-char">愛猫</span> Gatinho Amado</span
+                >
+              </h3>
+              <div class="niko-spotlight-role">
+                Mascote &amp; Guardião Oficial da Nossa Conexão 🐾
+              </div>
+              <p class="niko-spotlight-bio">
+                Nosso pequeno companheiro de quatro patas! Sempre curioso,
+                brincando com cabos elétricos estilizados, perseguindo faíscas
+                brilhantes e garantindo que o amor entre você e o Vinícius nunca
+                perca a doçura.
+              </p>
+              <button
+                class="btn btn-primary"
+                onclick="
+                  window.nikoInstance ? window.nikoInstance.petNiko() : null
+                "
+                style="font-size: 0.88rem; padding: 10px 22px"
+              >
+                <i class="fa-solid fa-paw"></i>
+                <span>Fazer Carinho no Niko</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================================
+         11. SURPRESA FINAL (O GRANDE CIRCUITO DO NOSSO AMOR)
+         ========================================================================= -->
+      <section class="site-section" id="surpresa">
+        <div class="container container-narrow">
+          <div class="surprise-box circuit-border">
+            <div class="section-eyebrow" style="color: var(--electric-amber)">
+              <i class="fa-solid fa-star"></i>
+              <span>Surpresa Especial</span>
+            </div>
+
+            <h2 class="section-title">O Grande Circuito do Nosso Universo</h2>
+            <p class="section-subtitle">
+              Quando dois polos encontram ressonância pura, a corrente flui
+              livremente. Puxe a alavanca abaixo para ligar a força total do
+              nosso amor!
+            </p>
+
+            <!-- Alavanca Física Estilizada (Knife Switch) -->
+            <div class="knife-switch-container">
+              <div
+                class="knife-switch-base"
+                id="knife-switch-base"
+                title="Puxe para fechar o circuito!"
+              >
+                <div class="knife-switch-contacts">
+                  <div class="knife-contact"></div>
+                  <div class="knife-contact"></div>
+                </div>
+                <div class="knife-switch-lever">
+                  <div class="knife-switch-handle"></div>
+                </div>
+              </div>
+
+              <div
+                class="circuit-status-indicator"
+                id="circuit-status-indicator"
+              >
+                <div class="circuit-lamp"></div>
+                <span>Circuito Aberto • Puxe a alavanca para energizar</span>
+              </div>
+            </div>
+
+            <!-- Carta Solene / Certificado de Amor Revelado -->
+            <div class="surprise-pledge-card" id="surprise-pledge-card">
+              <div class="kanji-tag" style="margin-bottom: 14px">
+                <span class="kanji-char">永遠</span>
+                <span>Eien • Para Sempre</span>
+              </div>
+              <h3 class="surprise-pledge-title">Vinícius &amp; Isabelly</h3>
+              <p class="surprise-pledge-text">
+                "Isabelly, obrigado por cada sorriso, cada risada no Discord e
+                por me permitir construir esse pequeno universo junto de você.
+                Que a nossa sintonia continue firme, doce e iluminada por
+                infinitos ciclos. Você é a minha pessoa favorita."
+              </p>
+              <button
+                id="surprise-replay-btn"
+                class="btn btn-outline"
+                style="font-size: 0.85rem; padding: 10px 22px"
+              >
+                <i class="fa-solid fa-rotate-right"></i>
+                <span>Reativar Faíscas ✨</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================================================
+       RODAPÉ ROMÂNTICO
+       ========================================================================= -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-japanese-tag">二人の物語 • 運命 • 愛</div>
+        <p class="footer-copy">
+          Criado com amor por
+          <span class="footer-names">Vinícius (LIM4O)</span> para
+          <span class="footer-names">Isabelly Lavigne</span>.
+        </p>
+        <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 6px">
+          Conectados desde 08/03/2026 • Com a bênção do nosso gato Niko 🐾
+        </p>
+      </div>
+    </footer>
+
+    <!-- =========================================================================
+       MASCOTE NIKO: COMPANHEIRO INTERATIVO FLUTUANTE
+       ========================================================================= -->
+    <div id="niko-companion" title="Clique para brincar com o Niko!">
+      <div id="niko-speech-bubble">
+        <div class="niko-bubble-name">
+          <span>Niko</span>
+          <i class="fa-solid fa-paw"></i>
+        </div>
+        <div id="niko-bubble-text" class="niko-bubble-text">Miau! ❤️</div>
+      </div>
+
+      <div class="niko-avatar-wrapper">
+        <img
+          id="niko-avatar-img"
+          src="assets/images/niko/niko.svg"
+          alt="Niko Mascot"
+          class="niko-img"
+        />
+        <div class="niko-zzz">Zzz...</div>
+      </div>
+    </div>
+
+    <!-- Barra de Controle Rápida do Niko -->
+    <div class="niko-controls-bar">
+      <button id="niko-btn-pet" class="niko-btn-pill" title="Fazer carinho">
+        <i class="fa-solid fa-heart"></i>
+        <span>Carinho</span>
+      </button>
+      <button id="niko-btn-sleep" class="niko-btn-pill" title="Modo soneca">
+        <i class="fa-solid fa-moon"></i>
+        <span>Dormir</span>
+      </button>
+      <button id="niko-btn-call" class="niko-btn-pill" title="Chamar o Niko">
+        <i class="fa-solid fa-cat"></i>
+        <span>Niko</span>
+      </button>
+    </div>
+
+    <!-- =========================================================================
+       MODAIS: LIGHTBOX & MENSAGEM SECRETA
+       ========================================================================= -->
+    <!-- Modal Lightbox da Galeria -->
+    <div
+      id="lightbox-modal"
+      class="lightbox-modal"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="lightbox-inner">
+        <button
+          id="lightbox-close"
+          class="lightbox-close-btn"
+          aria-label="Fechar"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button
+          id="lightbox-prev"
+          class="lightbox-nav-btn prev"
+          aria-label="Foto anterior"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-img-frame">
+          <img
+            id="lightbox-img"
+            src=""
+            alt="Imagem ampliada"
+            class="lightbox-img"
+          />
+        </div>
+        <button
+          id="lightbox-next"
+          class="lightbox-nav-btn next"
+          aria-label="Próxima foto"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+        <div style="text-align: center">
+          <h4
+            id="lightbox-title"
+            style="font-size: 1.4rem; color: #fff; margin-bottom: 4px"
+          ></h4>
+          <span
+            id="lightbox-japanese"
+            style="
+              font-family: var(--font-kanji);
+              color: var(--pink-light);
+              font-size: 0.9rem;
+              display: block;
+              margin-bottom: 8px;
+            "
+          ></span>
+          <p
+            id="lightbox-caption"
+            style="color: var(--text-muted); font-size: 0.95rem"
+          ></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Mensagem Secreta -->
+    <div id="secret-modal" class="secret-modal" role="dialog" aria-modal="true">
+      <div class="secret-modal-card">
+        <button
+          id="secret-modal-close"
+          class="secret-modal-close"
+          aria-label="Fechar"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="kanji-tag" style="margin-bottom: 12px">
+          <span class="kanji-char" id="secret-modal-kanji">愛</span>
+        </div>
+        <h3 id="secret-modal-title" style="font-size: 1.6rem; color: #fff">
+          Mensagem Secreta
+        </h3>
+        <div id="secret-modal-body" class="secret-modal-body"></div>
+        <button
+          class="btn btn-primary"
+          onclick="
+            document.getElementById('secret-modal').classList.remove('active');
+            document.body.style.overflow = '';
+          "
+        >
+          <span>Guardar no Coração ❤️</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Toast Notification Flutuante -->
+    <div id="toast-notification" class="toast-notification">
+      <i class="fa-solid fa-heart" style="color: var(--pink-primary)"></i>
+      <span id="toast-message">Notificação</span>
+    </div>
+
+    <!-- =========================================================================
+       EASTER EGG MODAL: "Eu te amo S2" (Revelado ao completar 5 descobertas)
+       ========================================================================= -->
+    <div
+      id="easter-egg-modal"
+      class="easter-egg-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Surpresa final de amor"
+    >
+      <div class="easter-egg-card">
+        <div class="easter-egg-badge">
+          <i class="fa-solid fa-heart"></i>
+          <span id="easter-egg-badge-text"
+            >✨ Todos os 5 Segredos Descobertos 💖</span
+          >
+        </div>
+
+        <div class="easter-egg-kanji">
+          <span>心から愛しています</span>
+        </div>
+        <div class="easter-egg-kanji-translation">
+          Te amo do fundo do meu coração
+        </div>
+
+        <h1 class="easter-egg-calligraphy">Eu te amo S2</h1>
+
+        <p id="easter-egg-text" class="easter-egg-text"></p>
+        <p id="easter-egg-signature" class="easter-egg-signature"></p>
+
+        <div class="easter-egg-sparks">⚡ 💖 ⚡</div>
+
+        <button
+          class="btn btn-primary"
+          style="margin-top: 16px"
+          onclick="
+            document
+              .getElementById('easter-egg-modal')
+              .classList.remove('active');
+            document.body.style.overflow = '';
+          "
+        >
+          <i class="fa-solid fa-heart"></i>
+          <span>Guardar no Coração para Sempre</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+       SCRIPTS: ARQUITETURA MODULAR
+       ========================================================================= -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/circuits.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/player.js"></script>
+    <script src="assets/js/timeline.js"></script>
+    <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/secrets.js"></script>
+    <script src="assets/js/niko.js"></script>
+    <script src="assets/js/surprise.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="isaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff758f"/>
+      <stop offset="70%" stop-color="#700c24"/>
+      <stop offset="100%" stop-color="#2a050e"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="150" cy="150" r="140" fill="url(#isaGlow)"/>
+  <circle cx="150" cy="150" r="135" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <circle cx="150" cy="150" r="120" fill="none" stroke="#ffb703" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <!-- Elegant Initial Silhouette & Rose -->
+  <text x="150" y="170" font-family="'Cinzel', Georgia, serif" font-size="95" font-weight="700" fill="#fff" text-anchor="middle" filter="url(#glow)">I</text>
+  <text x="150" y="215" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="20" fill="#ffccd5" text-anchor="middle">Isabelly</text>
+  <polygon points="150,60 153,70 163,73 153,76 150,86 147,76 137,73 147,70" fill="#ffea00"/>
+</svg>

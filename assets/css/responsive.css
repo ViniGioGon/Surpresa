@@ -1,0 +1,164 @@
+/* ==============================================================================
+   PROJETO: NOSSO PEQUENO UNIVERSO ❤️
+   Uma homenagem de Vinícius (LIM4O) para Isabelly Lavigne
+   RESPONSIVIDADE & AJUSTES MOBILE (responsive.css)
+   ============================================================================== */
+
+@media (max-width: 992px) {
+  .couple-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .couple-bridge-container {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .couple-bridge-wire {
+    width: 2px;
+    height: 40px;
+  }
+
+  .music-hero-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .vinyl-deck {
+    margin-bottom: 20px;
+  }
+
+  .player-quote-box {
+    text-align: left;
+  }
+
+  .player-controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .niko-spotlight-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .niko-spotlight-info h3 {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-section {
+    padding: 70px 0;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .hero-section {
+    padding-top: 100px;
+  }
+
+  .hero-main-name {
+    font-size: 2.8rem;
+  }
+
+  .timeline-spine {
+    left: 24px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 65px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .timeline-node-icon {
+    left: 2px !important;
+    right: auto !important;
+    width: 38px;
+    height: 38px;
+  }
+
+  .timeline-item:nth-child(odd) .timeline-electrical-note {
+    justify-content: flex-start;
+  }
+
+  .counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .letter-parchment {
+    padding: 36px 22px;
+  }
+
+  .letter-content {
+    font-size: 1.18rem;
+  }
+
+  .lightbox-nav-btn {
+    display: none; /* Em telas móveis, simplifica */
+  }
+
+  /* Ajuste do Mascote Niko em Telas Pequenas */
+  #niko-companion {
+    width: 105px;
+    height: 105px;
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .niko-controls-bar {
+    right: 120px;
+    bottom: 12px;
+    padding: 4px 8px;
+  }
+
+  .niko-btn-pill span {
+    display: none; /* Mostra apenas os ícones */
+  }
+
+  #niko-speech-bubble {
+    width: 220px;
+    right: 0;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-main-name {
+    font-size: 2.2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .counter-number {
+    font-size: 2.2rem;
+  }
+
+  .glass-card,
+  .counter-box,
+  .story-wrapper,
+  .music-hero-card,
+  .surprise-box {
+    padding: 26px 18px;
+  }
+}
+

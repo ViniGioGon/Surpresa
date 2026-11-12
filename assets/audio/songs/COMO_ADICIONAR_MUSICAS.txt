@@ -1,0 +1,20 @@
+==============================================================================
+COMO ADICIONAR SUAS MÚSICAS MP3 NESTA PASTA
+==============================================================================
+
+Para adicionar suas músicas favoritas:
+
+1. MÚSICA PRINCIPAL (GLUE SONG):
+   - Baixe ou copie seu arquivo de áudio da música "Glue Song" de beabadoobee em formato MP3.
+   - Renomeie o arquivo para:
+     glue-song.mp3
+   - Salve o arquivo exatamente nesta pasta:
+     assets/audio/songs/glue-song.mp3
+
+2. ADICIONAR OUTRAS MÚSICAS À PLAYLIST:
+   - Copie seus outros arquivos MP3 para esta pasta (ex: musica2.mp3, musica3.mp3).
+   - Abra o arquivo 'assets/js/config.js'.
+   - Na seção 'playlist', adicione ou edite o título, artista e o nome do arquivo.
+
+* Observação: O player já conta com um sintetizador sonoro romântico inteligente! Mesmo antes de você colocar o arquivo MP3, ao clicar no Play o site tocará uma melodia doce e harmoniosa para nunca ficar em silêncio. Assim que você colocar o 'glue-song.mp3', a música original tocará perfeitamente!
+==============================================================================

@@ -1,0 +1,2128 @@
+/* ==============================================================================
+   PROJETO: NOSSO PEQUENO UNIVERSO ❤️
+   Uma homenagem de Vinícius (LIM4O) para Isabelly Lavigne
+   COMPONENTES DO SITE (components.css)
+   ============================================================================== */
+
+/* ==============================================================================
+   0. PÁGINA / TELA DE ENTRADA: "SURPRESA" (Desbloqueia Autoplay & Experiência)
+   ============================================================================== */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background: radial-gradient(circle at 50% 50%, #290513 0%, #110309 60%, #060104 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.9s ease;
+  overflow: hidden;
+}
+
+.welcome-screen.unlocked {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.08);
+  pointer-events: none;
+}
+
+.welcome-container {
+  max-width: 620px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  animation: floatSoft 5s infinite ease-in-out;
+}
+
+.welcome-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-kanji);
+  font-size: 0.95rem;
+  color: var(--pink-light);
+  background: rgba(255, 117, 143, 0.1);
+  border: 1px solid rgba(255, 117, 143, 0.3);
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+}
+
+.welcome-heading {
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #ffffff 20%, var(--pink-whisper) 50%, var(--pink-primary) 85%, var(--electric-amber) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(255, 117, 143, 0.4));
+}
+
+.welcome-subheading {
+  font-family: var(--font-cursive);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  color: var(--pink-whisper);
+  margin-bottom: 48px;
+  line-height: 1.5;
+}
+
+/* O Botão Central Surpresa */
+.surprise-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn-surprise-glow {
+  background: linear-gradient(135deg, var(--wine-700) 0%, var(--wine-500) 50%, #d90429 100%);
+  color: #ffffff;
+  border: 2px solid rgba(255, 183, 3, 0.65);
+  padding: 22px 56px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  box-shadow: 0 0 35px rgba(255, 117, 143, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: surpriseBtnPulse 2.4s infinite ease-in-out;
+}
+
+.btn-surprise-glow:hover {
+  transform: scale(1.08) translateY(-3px);
+  border-color: #ffd166;
+  box-shadow: 0 0 55px rgba(255, 117, 143, 0.85), 0 0 30px var(--electric-amber);
+}
+
+.btn-surprise-glow:active {
+  transform: scale(0.98);
+}
+
+.surprise-btn-heart {
+  font-size: 1.6rem;
+  color: #ffffff;
+  filter: drop-shadow(0 0 8px #ff758f);
+  animation: pulseGlow 1.8s infinite;
+}
+
+.surprise-btn-sparkle-left {
+  font-size: 1.4rem;
+  color: var(--electric-amber);
+  animation: floatSoft 2s infinite ease-in-out;
+}
+
+@keyframes surpriseBtnPulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(255, 117, 143, 0.5), 0 0 10px rgba(255, 183, 3, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 117, 143, 0.85), 0 0 25px rgba(255, 183, 3, 0.6);
+  }
+}
+
+.surprise-btn-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: var(--pink-light);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* ------------------------------------------------------------------------------
+   1. HERO CINEMATOGRÁFICO
+   ------------------------------------------------------------------------------ */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-kanji-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 117, 143, 0.08);
+  border: 1px solid rgba(255, 117, 143, 0.28);
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-kanji);
+  font-size: 0.95rem;
+  color: var(--pink-light);
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+  animation: floatSoft 4s infinite ease-in-out;
+}
+
+.hero-kanji-pill .char {
+  color: var(--electric-spark);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.hero-title-prefix {
+  font-family: var(--font-cursive);
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+
+.hero-main-name {
+  font-size: clamp(2.8rem, 7.5vw, 5.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 15%, var(--pink-whisper) 40%, var(--pink-primary) 80%, var(--electric-amber) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(255, 117, 143, 0.35));
+}
+
+.hero-dedication-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--pink-delicate);
+  background: rgba(34, 6, 17, 0.6);
+  border: 1px solid var(--border-glass);
+  padding: 8px 22px;
+  border-radius: var(--radius-full);
+  margin-bottom: 26px;
+}
+
+.hero-discord-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7289da;
+  background: rgba(114, 137, 218, 0.1);
+  border: 1px solid rgba(114, 137, 218, 0.3);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-left: 8px;
+}
+
+.hero-discord-badge i {
+  font-size: 1rem;
+}
+
+.hero-quote {
+  font-family: var(--font-cursive);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  color: var(--pink-whisper);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 2;
+  transition: color var(--transition-fast);
+}
+
+.hero-scroll-indicator:hover {
+  color: var(--pink-primary);
+}
+
+.hero-scroll-indicator .scroll-chevron {
+  font-size: 18px;
+  animation: scrollBounce 2s infinite ease-in-out;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ------------------------------------------------------------------------------
+   2. APRESENTAÇÃO DO CASAL (ELE & ELA)
+   ------------------------------------------------------------------------------ */
+.couple-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.couple-card {
+  background: linear-gradient(145deg, rgba(32, 8, 20, 0.75) 0%, rgba(12, 4, 9, 0.9) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.couple-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+}
+
+.couple-card.her:hover {
+  border-color: var(--pink-primary);
+}
+
+.couple-card.him:hover {
+  border-color: var(--electric-cyan);
+}
+
+.couple-avatar-frame {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  padding: 6px;
+  position: relative;
+}
+
+.couple-card.her .couple-avatar-frame {
+  background: linear-gradient(135deg, var(--pink-primary), var(--wine-600));
+  box-shadow: 0 0 25px rgba(255, 117, 143, 0.4);
+}
+
+.couple-card.him .couple-avatar-frame {
+  background: linear-gradient(135deg, var(--electric-cyan), var(--wine-700));
+  box-shadow: 0 0 25px rgba(100, 223, 223, 0.4);
+}
+
+.couple-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-primary);
+}
+
+.couple-name {
+  font-size: 1.85rem;
+  margin-bottom: 4px;
+}
+
+.couple-nickname {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.couple-card.her .couple-nickname {
+  color: var(--pink-primary);
+}
+
+.couple-card.him .couple-nickname {
+  color: var(--electric-cyan);
+}
+
+.couple-tagline {
+  font-family: var(--font-cursive);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--pink-whisper);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.couple-bio {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------------------
+   3. NOSSA HISTÓRIA (NARRATIVA)
+   ------------------------------------------------------------------------------ */
+.story-wrapper {
+  background: linear-gradient(145deg, rgba(28, 7, 18, 0.8) 0%, rgba(10, 3, 7, 0.95) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 50px 45px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+.story-lead {
+  font-family: var(--font-cursive);
+  font-size: 1.45rem;
+  font-style: italic;
+  color: var(--text-gold);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  border-left: 3px solid var(--electric-amber);
+  padding-left: 20px;
+}
+
+.story-body p {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-romantic);
+}
+
+.story-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------------------------
+   4. LINHA DO TEMPO INTERATIVA
+   ------------------------------------------------------------------------------ */
+.timeline-container {
+  position: relative;
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 20px 0;
+}
+
+/* Linha Central de Circuito */
+.timeline-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, 
+    var(--electric-cyan) 0%, 
+    var(--pink-primary) 50%, 
+    var(--wine-500) 100%
+  );
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px rgba(255, 117, 143, 0.5);
+}
+
+.timeline-spine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px var(--electric-amber);
+  animation: spineTravel 6s linear infinite;
+}
+
+@keyframes spineTravel {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 45px;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 45px;
+  text-align: left;
+}
+
+.timeline-node-icon {
+  position: absolute;
+  top: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--wine-600) 0%, var(--bg-primary) 100%);
+  border: 2px solid var(--pink-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 18px rgba(255, 117, 143, 0.5);
+  z-index: 2;
+  transition: all var(--transition-smooth);
+}
+
+.timeline-item:nth-child(odd) .timeline-node-icon {
+  right: -22px;
+}
+
+.timeline-item:nth-child(even) .timeline-node-icon {
+  left: -22px;
+}
+
+.timeline-item:hover .timeline-node-icon {
+  transform: scale(1.2) rotate(15deg);
+  border-color: var(--electric-amber);
+  box-shadow: 0 0 25px var(--electric-spark);
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  transition: all var(--transition-smooth);
+}
+
+.timeline-card:hover {
+  border-color: rgba(255, 117, 143, 0.5);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.timeline-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--electric-amber);
+  margin-bottom: 8px;
+}
+
+.timeline-item-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.timeline-japanese-badge {
+  font-family: var(--font-kanji);
+  font-size: 0.8rem;
+  color: var(--pink-light);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-romantic);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.timeline-electrical-note {
+  font-size: 0.8rem;
+  color: var(--electric-cyan);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.timeline-item:nth-child(odd) .timeline-electrical-note {
+  justify-content: flex-end;
+}
+
+/* ------------------------------------------------------------------------------
+   5. CONTADOR TEMPO JUNTOS ("Desde a nossa primeira conversa.")
+   ------------------------------------------------------------------------------ */
+.counter-box {
+  background: linear-gradient(145deg, rgba(34, 8, 22, 0.8) 0%, rgba(12, 3, 8, 0.95) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 36px 0;
+}
+
+.counter-tile {
+  background: rgba(18, 5, 13, 0.8);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 24px 16px;
+  position: relative;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-smooth);
+}
+
+.counter-tile:hover {
+  border-color: var(--pink-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255, 117, 143, 0.25);
+}
+
+.counter-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  background: linear-gradient(180deg, #ffffff 40%, var(--pink-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.counter-number.pulse-tick {
+  animation: counterTickPulse 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes counterTickPulse {
+  0% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px var(--pink-primary));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+.counter-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--pink-primary);
+  font-weight: 600;
+}
+
+/* Métricas & Estatísticas de Conexão */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-light);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item-value {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--electric-amber);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stat-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.counter-disclaimer {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------------------------
+   6. CARTA ROMÂNTICA PERSONALIZADA (LACRE DE CERA)
+   ------------------------------------------------------------------------------ */
+.letter-envelope-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.wax-seal-trigger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.wax-seal-btn {
+  width: 90px;
+  height: 90px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+  transition: all var(--transition-smooth);
+}
+
+.wax-seal-btn:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 10px 25px rgba(255, 117, 143, 0.45));
+}
+
+.wax-seal-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.wax-seal-hint {
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: var(--pink-light);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.letter-parchment {
+  background: linear-gradient(145deg, #180510 0%, #10030a 100%);
+  border: 1px solid rgba(255, 117, 143, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  position: relative;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: none; /* Revelada ao abrir o lacre */
+  animation: letterUnfold 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.letter-parchment.open {
+  display: block;
+}
+
+@keyframes letterUnfold {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.letter-header {
+  text-align: center;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.letter-japanese-header {
+  font-family: var(--font-kanji);
+  font-size: 1.1rem;
+  color: var(--electric-amber);
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+
+.letter-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.letter-date-stamp {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.letter-content {
+  font-family: var(--font-cursive);
+  font-size: 1.35rem;
+  line-height: 1.8;
+  color: var(--pink-whisper);
+}
+
+.letter-salutation {
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.letter-paragraph {
+  margin-bottom: 22px;
+  text-indent: 2em;
+}
+
+.letter-closing {
+  margin-top: 36px;
+  text-align: right;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.letter-signature {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--pink-light);
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------------------
+   7. PLAYER PRINCIPAL (GLUE SONG) & PLAYLIST
+   ------------------------------------------------------------------------------ */
+.music-hero-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+  background: linear-gradient(145deg, rgba(35, 9, 23, 0.85) 0%, rgba(13, 3, 9, 0.95) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 40px;
+}
+
+.vinyl-deck {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+.vinyl-disk {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #222 0%, #111 60%, #000 100%);
+  border: 4px solid #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 117, 143, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.vinyl-disk.spinning {
+  animation: vinylSpin 6s linear infinite;
+}
+
+@keyframes vinylSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.vinyl-cover-thumb {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--pink-primary);
+  z-index: 2;
+}
+
+.vinyl-center-hole {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid #555;
+  z-index: 3;
+}
+
+.player-details h3 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.player-artist {
+  font-size: 1.1rem;
+  color: var(--pink-primary);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.player-quote-box {
+  background: rgba(0, 0, 0, 0.35);
+  border-left: 3px solid var(--pink-primary);
+  padding: 12px 18px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 24px;
+}
+
+.player-quote-text {
+  font-family: var(--font-cursive);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--pink-whisper);
+}
+
+.player-quote-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Barra de Progresso do Áudio */
+.player-scrubber-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.player-time {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  min-width: 42px;
+}
+
+.player-scrubber {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  position: relative;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.player-scrubber-filled {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--wine-500), var(--pink-primary));
+  border-radius: var(--radius-full);
+  position: relative;
+  box-shadow: 0 0 10px var(--pink-primary);
+}
+
+.player-scrubber-filled::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px var(--pink-primary);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.player-scrubber:hover .player-scrubber-filled::after {
+  opacity: 1;
+}
+
+/* Controles de Reprodução */
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.player-buttons-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.control-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-romantic);
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.control-btn:hover {
+  background: rgba(255, 117, 143, 0.15);
+  color: var(--pink-primary);
+}
+
+.control-btn.active {
+  color: var(--electric-amber);
+}
+
+.play-pause-btn {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, var(--wine-600), var(--wine-400));
+  color: #ffffff;
+  border: 1px solid var(--pink-primary);
+  font-size: 1.3rem;
+  box-shadow: 0 0 20px rgba(255, 117, 143, 0.45);
+}
+
+.play-pause-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 117, 143, 0.7);
+  color: #ffffff;
+}
+
+/* Controle de Volume */
+.player-volume-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volume-slider {
+  width: 90px;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--pink-primary);
+  box-shadow: 0 0 6px var(--pink-primary);
+  cursor: pointer;
+}
+
+/* Visualizador de Ondas de Áudio (Canvas) */
+#audio-visualizer-canvas {
+  width: 100%;
+  height: 38px;
+  display: block;
+  margin-top: 15px;
+  border-radius: var(--radius-sm);
+}
+
+/* Playlist Lista de Faixas */
+.playlist-drawer {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.playlist-drawer h4 {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.playlist-tracks-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playlist-track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.playlist-track-item:hover {
+  background: rgba(255, 117, 143, 0.1);
+  border-color: rgba(255, 117, 143, 0.3);
+}
+
+.playlist-track-item.active {
+  background: rgba(255, 117, 143, 0.18);
+  border-color: var(--pink-primary);
+}
+
+.track-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.track-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.track-name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.track-artist {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.track-duration {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+/* ------------------------------------------------------------------------------
+   8. GALERIA DE FOTOGRAFIAS REAIS
+   ------------------------------------------------------------------------------ */
+.gallery-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.gallery-filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  color: var(--pink-delicate);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.gallery-filter-btn:hover,
+.gallery-filter-btn.active {
+  background: var(--wine-600);
+  border-color: var(--pink-primary);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 117, 143, 0.35);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.gallery-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--pink-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.gallery-thumb-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #000;
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-thumb {
+  transform: scale(1.06);
+}
+
+.gallery-overlay-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(14, 4, 10, 0.85);
+  border: 1px solid var(--border-glass);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  color: var(--electric-amber);
+  backdrop-filter: blur(8px);
+}
+
+.gallery-caption-box {
+  padding: 18px 20px;
+}
+
+.gallery-title {
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.gallery-japanese-label {
+  font-family: var(--font-kanji);
+  font-size: 0.78rem;
+  color: var(--pink-light);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.gallery-caption {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 1, 4, 0.95);
+  backdrop-filter: blur(18px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-inner {
+  max-width: 900px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.lightbox-img-frame {
+  max-height: 70vh;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+  margin-bottom: 18px;
+}
+
+.lightbox-img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.lightbox-close-btn:hover {
+  transform: rotate(90deg) scale(1.1);
+  color: var(--pink-primary);
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(30, 8, 19, 0.8);
+  border: 1px solid var(--border-glass);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-nav-btn.prev { left: -65px; }
+.lightbox-nav-btn.next { right: -65px; }
+
+.lightbox-nav-btn:hover {
+  background: var(--wine-600);
+  border-color: var(--pink-primary);
+}
+
+/* ------------------------------------------------------------------------------
+   9. CARTAS & MENSAGENS SECRETAS
+   ------------------------------------------------------------------------------ */
+.secrets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.secret-card {
+  background: linear-gradient(145deg, rgba(30, 8, 19, 0.8) 0%, rgba(12, 3, 8, 0.95) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 30px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.secret-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--pink-primary);
+  box-shadow: 0 10px 30px rgba(255, 117, 143, 0.3);
+}
+
+.secret-icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 117, 143, 0.12);
+  border: 1px solid rgba(255, 117, 143, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--pink-primary);
+  font-size: 24px;
+  transition: all var(--transition-smooth);
+}
+
+.secret-card:hover .secret-icon-circle {
+  background: var(--wine-600);
+  color: #fff;
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 0 20px var(--pink-primary);
+}
+
+.secret-title {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.secret-kanji {
+  font-family: var(--font-kanji);
+  font-size: 0.85rem;
+  color: var(--electric-amber);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.secret-preview {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.secret-cta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--pink-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Modal de Mensagem Secreta */
+.secret-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 1, 4, 0.95);
+  backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.secret-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.secret-modal-card {
+  max-width: 620px;
+  width: 90%;
+  background: linear-gradient(145deg, #220615 0%, #0d0208 100%);
+  border: 1px solid var(--pink-primary);
+  border-radius: var(--radius-lg);
+  padding: 44px 38px;
+  box-shadow: 0 0 50px rgba(255, 117, 143, 0.4);
+  position: relative;
+  text-align: center;
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.secret-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.secret-modal-close:hover {
+  color: var(--pink-primary);
+}
+
+.secret-modal-body {
+  font-family: var(--font-cursive);
+  font-size: 1.3rem;
+  line-height: 1.75;
+  color: var(--pink-whisper);
+  margin: 22px 0 28px;
+  text-align: left;
+}
+
+/* ------------------------------------------------------------------------------
+   10. SURPRESA FINAL (O GRANDE CIRCUITO & UNIVERSO)
+   ------------------------------------------------------------------------------ */
+.surprise-box {
+  background: radial-gradient(circle at 50% 50%, rgba(46, 11, 28, 0.8) 0%, rgba(12, 3, 8, 0.98) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 60px 36px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.surprise-pledge-card {
+  max-width: 700px;
+  margin: 30px auto 0;
+  background: rgba(22, 6, 15, 0.9);
+  border: 1px solid var(--pink-primary);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  box-shadow: 0 0 35px rgba(255, 117, 143, 0.35);
+  display: none;
+}
+
+.surprise-pledge-card.revealed {
+  display: block;
+  animation: letterUnfold 0.8s ease forwards;
+}
+
+.surprise-pledge-title {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.surprise-pledge-text {
+  font-family: var(--font-cursive);
+  font-size: 1.3rem;
+  color: var(--pink-whisper);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* ------------------------------------------------------------------------------
+   11. CARTAS DE TAROT DO NOSSO DESTINO (REFERÊNCIA AO TAROT)
+   ------------------------------------------------------------------------------ */
+.tarot-card {
+  perspective: 1000px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.tarot-card-frame {
+  background: linear-gradient(145deg, #240716 0%, #11030a 60%, #060104 100%);
+  border: 2px solid rgba(255, 183, 3, 0.45);
+  border-radius: var(--radius-md);
+  padding: 30px 22px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 183, 3, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 380px;
+}
+
+.tarot-card:hover .tarot-card-frame {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #ffd166;
+  box-shadow: 0 12px 40px rgba(255, 117, 143, 0.4), 0 0 25px rgba(255, 183, 3, 0.35);
+}
+
+/* Cantos Ornamentais de Tarot */
+.tarot-ornament-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--electric-amber);
+  border-style: solid;
+  opacity: 0.85;
+}
+.tarot-ornament-corner.tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+.tarot-ornament-corner.tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+.tarot-ornament-corner.bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+.tarot-ornament-corner.br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+
+.tarot-numeral {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  color: var(--electric-amber);
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(255, 183, 3, 0.5);
+}
+
+.tarot-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--wine-700) 0%, rgba(17, 3, 10, 0.9) 100%);
+  border: 1.5px solid rgba(255, 183, 3, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pink-primary);
+  font-size: 24px;
+  margin-bottom: 14px;
+  box-shadow: 0 0 20px rgba(255, 117, 143, 0.25);
+  transition: all 0.3s;
+}
+
+.tarot-card:hover .tarot-icon-circle {
+  transform: rotate(15deg) scale(1.1);
+  color: #ffd166;
+  border-color: #ffd166;
+  box-shadow: 0 0 25px rgba(255, 183, 3, 0.6);
+}
+
+.tarot-arcana-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.tarot-japanese-sub {
+  font-family: var(--font-kanji);
+  font-size: 0.8rem;
+  color: var(--pink-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.tarot-astral-symbol {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 6px var(--electric-amber));
+}
+
+.tarot-preview-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.tarot-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--electric-amber);
+  background: rgba(255, 183, 3, 0.1);
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s;
+}
+
+.tarot-card:hover .tarot-cta-badge {
+  background: rgba(255, 183, 3, 0.25);
+  color: #ffffff;
+  border-color: #ffd166;
+}
+
+/* ------------------------------------------------------------------------------
+   12. ESPAÇO PARA VÍDEO DA CALL NO DISCORD (CALL ZUANDO)
+   ------------------------------------------------------------------------------ */
+.discord-theater-card {
+  background: linear-gradient(145deg, rgba(32, 9, 22, 0.85) 0%, rgba(13, 3, 9, 0.95) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.75);
+  position: relative;
+}
+
+.discord-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(14, 4, 10, 0.9);
+  border-bottom: 1px solid var(--border-glass);
+  font-size: 0.85rem;
+}
+
+.discord-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #7289da;
+  font-weight: 600;
+}
+
+.discord-bar-left i {
+  font-size: 1.1rem;
+}
+
+.discord-live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2ecc71;
+  box-shadow: 0 0 10px #2ecc71;
+  animation: pulseGlow 1.8s infinite;
+}
+
+.discord-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.discord-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.discord-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Mockup da Call quando o vídeo ainda não foi inserido */
+.discord-call-mockup {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, #200612 0%, #080205 100%);
+  z-index: 2;
+}
+
+.discord-mockup-avatars {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 24px;
+}
+
+.discord-voice-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.discord-voice-avatar-frame {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 4px;
+  border: 3px solid #2ecc71;
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+  position: relative;
+}
+
+.discord-voice-avatar-frame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.discord-voice-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.discord-voice-tag {
+  font-size: 0.78rem;
+  color: #2ecc71;
+}
+
+.discord-call-quote {
+  font-family: var(--font-cursive);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--pink-whisper);
+  max-width: 540px;
+  margin-bottom: 20px;
+}
+
+.discord-video-placeholder-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px dashed rgba(255, 117, 143, 0.4);
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  color: var(--electric-amber);
+}
+
+/* ------------------------------------------------------------------------------
+   13. EASTER EGG FINAL: "EU TE AMO S2"
+   ------------------------------------------------------------------------------ */
+.easter-egg-modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  background: radial-gradient(circle at 50% 50%, rgba(38, 7, 24, 0.98) 0%, rgba(8, 2, 6, 0.99) 100%);
+  backdrop-filter: blur(22px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 24px;
+}
+
+.easter-egg-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.easter-egg-card {
+  max-width: 680px;
+  width: 100%;
+  background: linear-gradient(145deg, #240516 0%, #0d0208 100%);
+  border: 2px solid var(--pink-primary);
+  border-radius: var(--radius-lg);
+  padding: 54px 42px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 70px rgba(255, 117, 143, 0.5), inset 0 0 30px rgba(255, 183, 3, 0.2);
+  animation: easterEggPop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes easterEggPop {
+  0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.easter-egg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--electric-amber);
+  background: rgba(255, 183, 3, 0.12);
+  border: 1px solid rgba(255, 183, 3, 0.4);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+}
+
+.easter-egg-calligraphy {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 5.2rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #ffffff 10%, #ffd166 40%, var(--pink-primary) 80%, #ff2a55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(255, 117, 143, 0.7));
+  animation: pulseGlow 2.5s infinite;
+}
+
+.easter-egg-japanese {
+  font-family: var(--font-kanji);
+  font-size: 1.1rem;
+  color: var(--pink-light);
+  margin-bottom: 26px;
+  display: block;
+}
+
+.easter-egg-text {
+  font-family: var(--font-cursive);
+  font-size: 1.45rem;
+  color: var(--pink-whisper);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.easter-egg-signature {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--pink-primary);
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+/* Pílula Rastreadora de Descobertas / Quest do Casal */
+.quest-tracker-pill {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  background: rgba(20, 6, 14, 0.9);
+  border: 1px solid var(--border-glass);
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--pink-delicate);
+  backdrop-filter: blur(12px);
+  z-index: 998;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quest-tracker-pill:hover {
+  border-color: var(--pink-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 117, 143, 0.4);
+}
+
+.quest-tracker-pill.completed {
+  border-color: var(--electric-amber);
+  color: #ffd166;
+  box-shadow: 0 0 25px rgba(255, 183, 3, 0.5);
+  animation: pulseGlow 2s infinite;
+}
+
+/* Footer Romântico */
+.site-footer {
+  padding: 60px 0 40px;
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-japanese-tag {
+  font-family: var(--font-kanji);
+  font-size: 1rem;
+  color: var(--electric-amber);
+  margin-bottom: 12px;
+}
+
+.footer-copy {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.footer-names {
+  font-family: var(--font-heading);
+  color: var(--pink-light);
+  font-weight: 600;
+}
+
+
+/* ==============================================================================
+   EASTER EGG MODAL: "Eu te amo S2" — Revelado ao completar as 5 descobertas
+   ============================================================================== */
+.easter-egg-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  background: radial-gradient(circle at 50% 40%, rgba(100, 0, 30, 0.97) 0%, rgba(10, 0, 5, 0.98) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+  overflow-y: auto;
+}
+
+.easter-egg-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.easter-egg-card {
+  background: linear-gradient(145deg, rgba(50, 10, 20, 0.95), rgba(20, 2, 8, 0.98));
+  border: 2px solid rgba(255, 117, 143, 0.5);
+  border-radius: var(--radius-xl);
+  padding: 48px 40px 40px;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 0 60px rgba(180, 0, 60, 0.4),
+    0 0 120px rgba(255, 117, 143, 0.15),
+    inset 0 0 40px rgba(255, 60, 100, 0.08);
+  animation: easterEggReveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  position: relative;
+  overflow: hidden;
+}
+
+.easter-egg-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(255, 117, 143, 0.06) 80%, transparent 90%);
+  animation: slowSpin 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes easterEggReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slowSpin {
+  to { transform: rotate(360deg); }
+}
+
+.easter-egg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 117, 143, 0.15);
+  border: 1px solid rgba(255, 117, 143, 0.4);
+  color: var(--pink-light);
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
+.easter-egg-kanji {
+  font-family: var(--font-kanji);
+  font-size: 1.5rem;
+  color: var(--electric-amber);
+  text-shadow: 0 0 20px rgba(255, 183, 3, 0.5);
+  margin-bottom: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.easter-egg-kanji-translation {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  font-family: var(--font-body);
+  position: relative;
+  z-index: 1;
+}
+
+.easter-egg-calligraphy {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(135deg, #ff758f 0%, #ffd166 50%, #ff2a55 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  text-shadow: none;
+  animation: calligraphyShimmer 3s ease infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes calligraphyShimmer {
+  0%, 100% { filter: brightness(1); }
+  50%       { filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 117, 143, 0.6)); }
+}
+
+.easter-egg-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.easter-egg-signature {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--pink-primary);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.easter-egg-sparks {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  animation: sparksPulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes sparksPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1);    }
+  50%       { opacity: 1;   transform: scale(1.08); }
+}
