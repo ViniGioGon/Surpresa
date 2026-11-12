@@ -220,7 +220,7 @@ class RomanticAudioPlayer {
     if (this.repeatMode === 'all') {
       this.repeatMode = 'one';
       this.repeatBtn.classList.add('active');
-      this.repeatBtn.innerHTML = '<i class="fa-solid fa-repeat"></i><span style="font-size: 10px; position:absolute; bottom:2px;">1</span>';
+      this.repeatBtn.innerHTML = '<i class="fa-solid fa-repeat"></i><span style="font-size: 10px; position:absolute; bottom:40%;">1</span>';
     } else if (this.repeatMode === 'one') {
       this.repeatMode = 'off';
       this.repeatBtn.classList.remove('active');

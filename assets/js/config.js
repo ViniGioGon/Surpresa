@@ -114,7 +114,7 @@ const CONFIG = {
         artist: "Músicas Nossas",
         file: "assets/audio/songs/faseeneutro.mp3",
         cover: "assets/images/covers/default-cover.svg",
-        duration: "",
+        duration: "4:17",
         note: "Mais uma faixa especial"
       },
       {
@@ -123,7 +123,16 @@ const CONFIG = {
         artist: "Teen beach movie",
         file: "assets/audio/songs/icantstopsinging.mp3",
         cover: "assets/images/covers/icantstopsinging.png",
-        duration: "",
+        duration: "2:30",
+        note: "Mais uma faixa especial"
+      },
+      {
+        id: 4,
+        title: "Sparks",
+        artist: "Coldplay",
+        file: "assets/audio/songs/sparks.mp3",
+        cover: "assets/images/covers/sparks.png",
+        duration: "3:47",
         note: "Mais uma faixa especial"
       }
       // Para adicionar mais músicas, copie o arquivo MP3 para assets/audio/songs/
@@ -332,7 +341,7 @@ const CONFIG = {
       category: "niko",
       tag: "Mascote",
       date: "Companheiro Fiel",
-      src: "assets/images/gallery/photo-niko.jpg",
+      src: "assets/images/gallery/niko.gif",
       caption: "Niko em um dos seus momentos de preguiça e fofura. O pequeno companheiro que ilumina ainda mais o nosso universo.",
       japanese: "愛猫ニコ (Aibyou Niko)"
     },
@@ -362,7 +371,7 @@ const CONFIG = {
       category: "memorias",
       tag: "Futuro",
       date: "Amanhã & Sempre",
-      src: "assets/images/gallery/photo6.svg",
+      src: "assets/images/gallery/futuro.png",
       caption: "Este espaço é uma lembrança de que muitas páginas, fotografias e viagens ainda serão registradas nessa nossa história.",
       japanese: "未来への約束 (Mirai e no yakusoku)"
     }
