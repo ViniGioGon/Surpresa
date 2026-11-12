@@ -104,7 +104,7 @@ const CONFIG = {
         title: "Glue Song",
         artist: "beabadoobee",
         file: "assets/audio/songs/glue-song.mp3",
-        cover: "assets/images/covers/glue-song.svg",
+        cover: "assets/images/covers/glue-song.png",
         duration: "2:15",
         note: "Nossa música especial"
       },
@@ -122,7 +122,7 @@ const CONFIG = {
         title: "I can't stop singing",
         artist: "Teen beach movie",
         file: "assets/audio/songs/icantstopsinging.mp3",
-        cover: "assets/images/covers/default-cover.svg",
+        cover: "assets/images/covers/icantstopsinging.png",
         duration: "",
         note: "Mais uma faixa especial"
       }
