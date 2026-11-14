@@ -322,21 +322,72 @@ function populateMetaphorsAndJapanese() {
   }
 }
 
-// Orbe de Ressonância entre as duas pessoas
+// Orbe de Ressonância entre as duas pessoas (Conecta Vinícius & Isa)
 function setupResonanceOrb() {
   const orb = document.getElementById('resonance-orb');
+  const coupleGrid = document.querySelector('.couple-grid');
   if (!orb) return;
 
-  orb.addEventListener('click', () => {
-    orb.style.transform = 'scale(1.3) rotate(360deg)';
-    orb.style.boxShadow = '0 0 45px var(--electric-cyan)';
+  // Cria o elemento de áudio caso o usuário coloque choque.mp3 em assets/audio/sfx/
+  const shockAudio = new Audio('assets/audio/sfx/choque.mp3');
+  shockAudio.preload = 'auto';
 
-    window.showRomanticToast('⚡ Frequência de ressonância atingida: atração total entre Vinícius e Isa!');
+  // Função para tocar som de choque elétrico sintetizado via Web Audio API caso o arquivo não exista
+  function playSynthesizedElectricShock() {
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new AudioCtx();
+      
+      // Múltiplos pulsos de faísca e arco elétrico
+      for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
 
-    setTimeout(() => {
-      orb.style.transform = '';
-      orb.style.boxShadow = '';
-    }, 700);
+          osc.type = i % 2 === 0 ? 'sawtooth' : 'square';
+          // Variação de frequência rápida para simular arco de choque
+          osc.frequency.setValueAtTime(80 + Math.random() * 320, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(1200 + Math.random() * 800, ctx.currentTime + 0.08);
+
+          gain.gain.setValueAtTime(0.18, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start();
+          osc.stop(ctx.currentTime + 0.12);
+        }, i * 55);
+      }
+    } catch(e) {}
+  }
+
+  function playShockSound() {
+    shockAudio.currentTime = 0;
+    shockAudio.play().catch(() => {
+      // Se choque.mp3 ainda não foi baixado, usa o som gerado pelo Web Audio API
+      playSynthesizedElectricShock();
+    });
+  }
+
+  orb.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Toca som de choque elétrico
+    playShockSound();
+
+    // Alterna o estado conectado
+    if (coupleGrid) {
+      coupleGrid.classList.toggle('connected');
+    }
+
+    const isConnected = coupleGrid && coupleGrid.classList.contains('connected');
+
+    if (isConnected) {
+      window.showRomanticToast('⚡ Conectados! Sintonia e ressonância máxima entre Isa & Vinícius!');
+    } else {
+      window.showRomanticToast('✨ Modo normal. Clique novamente para reconectar!');
+    }
   });
 }
 

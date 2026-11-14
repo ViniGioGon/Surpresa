@@ -71,6 +71,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent; /* Remove o fundo azul de toque no mobile */
+}
+
+/* Evita seleção acidental azul nos elementos interativos */
+button,
+a,
+.bridge-resonance-orb,
+.socket-switch-base,
+.couple-card,
+.tarot-card,
+.btn,
+.niko-btn-pill {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 html {
@@ -91,7 +106,6 @@ body {
   line-height: 1.65;
   background: radial-gradient(circle at 50% 0%, #20040f 0%, #080306 45%, #050104 100%);
   background-attachment: fixed;
-  cursor: url('design/cursor.cur'), auto;
 }
 
 /* Background Canvas Layer (Eletricidade e Partículas) */

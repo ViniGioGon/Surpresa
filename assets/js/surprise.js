@@ -75,7 +75,7 @@ class GrandSurpriseCircuit {
 
     if (this.indicator) {
       this.indicator.classList.remove('connected');
-      this.indicator.querySelector('span').textContent = 'Circuito Aberto • Puxe a alavanca para energizar';
+      this.indicator.querySelector('span').textContent = 'Desconectado • Clique na tomada para plugar e energizar';
     }
 
     if (this.pledgeCard) {
