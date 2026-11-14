@@ -9,28 +9,131 @@
 class GrandSurpriseCircuit {
   constructor() {
     this.switchBase = document.getElementById('knife-switch-base');
+    this.plugAssembly = this.switchBase ? this.switchBase.querySelector('.plug-assembly') : null;
+    this.plugCable = this.switchBase ? this.switchBase.querySelector('.plug-cable') : null;
+    this.plugPins = this.switchBase ? this.switchBase.querySelector('.plug-pins') : null;
     this.indicator = document.getElementById('circuit-status-indicator');
     this.pledgeCard = document.getElementById('surprise-pledge-card');
     this.replayBtn = document.getElementById('surprise-replay-btn');
 
     this.isActivated = false;
+    this.isDragging = false;
+    this.startX = 0;
+    this.currentDragX = 0;
+    this.maxDragDistance = 149; // 209px final - 60px inicial = 149px de arrasto até o centro da tomada
+
     this.init();
   }
 
   init() {
     if (!this.switchBase) return;
 
-    this.switchBase.addEventListener('click', () => {
-      if (!this.isActivated) {
-        this.activateCircuit();
-      }
-    });
+    // Suporte tanto para arrastar (drag and drop) quanto para clique
+    this.setupDraggablePlug();
 
     if (this.replayBtn) {
       this.replayBtn.addEventListener('click', () => {
         this.resetCircuit();
       });
     }
+  }
+
+  setupDraggablePlug() {
+    let hasMoved = false;
+
+    const onPointerDown = (e) => {
+      if (this.isActivated) return;
+      this.isDragging = true;
+      hasMoved = false;
+      this.startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+      this.switchBase.classList.add('dragging');
+
+      if (this.plugCable) this.plugCable.style.transition = 'none';
+      if (this.plugAssembly) this.plugAssembly.style.transition = 'none';
+      if (this.plugPins) this.plugPins.style.transition = 'none';
+
+      window.addEventListener('pointermove', onPointerMove);
+      window.addEventListener('pointerup', onPointerUp);
+      window.addEventListener('pointercancel', onPointerUp);
+    };
+
+    const onPointerMove = (e) => {
+      if (!this.isDragging || this.isActivated) return;
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+      const deltaX = clientX - this.startX;
+
+      if (Math.abs(deltaX) > 4) {
+        hasMoved = true;
+      }
+
+      // Permite arrastar entre 0px e maxDragDistance (149px)
+      this.currentDragX = Math.max(0, Math.min(this.maxDragDistance, deltaX));
+      const progress = this.currentDragX / this.maxDragDistance;
+
+      // Atualiza comprimento do cabo: 60px base + delta (até 209px no total, centro da tomada)
+      const newCableWidth = 60 + (this.maxDragDistance * progress);
+      if (this.plugCable) {
+        this.plugCable.style.width = `${newCableWidth}px`;
+      }
+
+      // Os pinos vão diminuindo suavemente conforme entram na tomada
+      if (this.plugPins) {
+        const pinScale = Math.max(0, 1 - progress);
+        this.plugPins.style.opacity = `${pinScale}`;
+        this.plugPins.style.transform = `scaleX(${pinScale})`;
+      }
+
+      // Atualiza dica do indicador
+      if (this.indicator && !this.isActivated) {
+        if (progress > 0.85) {
+          this.indicator.querySelector('span').textContent = 'Solte para conectar o Amor! ⚡';
+        } else {
+          this.indicator.querySelector('span').textContent = `Conectando... ${Math.round(progress * 100)}%`;
+        }
+      }
+    };
+
+    const onPointerUp = (e) => {
+      if (!this.isDragging) return;
+      this.isDragging = false;
+      this.switchBase.classList.remove('dragging');
+
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+
+      // Reativa as transições CSS suaves para animar até a tomada ou voltar
+      if (this.plugCable) this.plugCable.style.transition = 'width 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2)';
+      if (this.plugPins) this.plugPins.style.transition = 'all 0.4s ease';
+
+      // Se arrastou mais de 40% ou se foi apenas um clique rápido, conecta até o fim!
+      if (this.currentDragX > this.maxDragDistance * 0.4 || !hasMoved) {
+        // Estica o cabo e recolhe os pinos até o centro exato da tomada (209px)
+        if (this.plugCable) this.plugCable.style.width = '209px';
+        if (this.plugPins) {
+          this.plugPins.style.opacity = '0';
+          this.plugPins.style.transform = 'scaleX(0)';
+        }
+        this.activateCircuit();
+      } else {
+        // Volta suavemente ao início
+        this.resetPlugPosition();
+      }
+    };
+
+    this.switchBase.addEventListener('pointerdown', onPointerDown);
+  }
+
+  resetPlugPosition() {
+    if (this.plugCable) this.plugCable.style.width = '';
+    if (this.plugPins) {
+      this.plugPins.style.opacity = '';
+      this.plugPins.style.transform = '';
+    }
+    if (this.indicator) {
+      this.indicator.querySelector('span').textContent = 'Desconectado • Arraste ou clique na tomada para conectar';
+    }
+    this.currentDragX = 0;
   }
 
   activateCircuit() {
@@ -72,11 +175,7 @@ class GrandSurpriseCircuit {
   resetCircuit() {
     this.isActivated = false;
     this.switchBase.classList.remove('active');
-
-    if (this.indicator) {
-      this.indicator.classList.remove('connected');
-      this.indicator.querySelector('span').textContent = 'Desconectado • Clique na tomada para plugar e energizar';
-    }
+    this.resetPlugPosition();
 
     if (this.pledgeCard) {
       this.pledgeCard.classList.remove('revealed');

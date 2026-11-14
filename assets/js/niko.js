@@ -228,9 +228,9 @@ class NikoCompanion {
   startAutonomousLife() {
     if (this.prefersReducedMotion) return;
 
-    // Intervalo inteligente entre 22 e 38 segundos
+    // Intervalo de ações autônomas entre 12 e 24 segundos
     const scheduleNextAction = () => {
-      const delay = Math.floor(Math.random() * 16000) + 22000;
+      const delay = Math.floor(Math.random() * 12000) + 12000;
       this.behaviorTimer = setTimeout(() => {
         if (!this.isSleeping) {
           this.performRandomBehavior();
@@ -244,7 +244,8 @@ class NikoCompanion {
 
   performRandomBehavior() {
     const behaviors = [
-      'stroll_bottom',
+      'wander_screen',
+      'wander_screen',
       'lick_paw',
       'play_wire',
       'chase_spark',
@@ -254,8 +255,8 @@ class NikoCompanion {
     const chosen = behaviors[Math.floor(Math.random() * behaviors.length)];
 
     switch (chosen) {
-      case 'stroll_bottom':
-        this.strollAlongBottom();
+      case 'wander_screen':
+        this.wanderScreenRandomly();
         break;
       case 'lick_paw':
         this.lickPaw();
@@ -275,6 +276,65 @@ class NikoCompanion {
         }
         break;
     }
+  }
+
+  // Caminhar aleatoriamente pela tela e explorar o universo
+  wanderScreenRandomly() {
+    if (this.isWalking || this.isSleeping) return;
+    this.isWalking = true;
+
+    // Pega as dimensões visíveis da janela
+    const winW = window.innerWidth;
+    const winH = window.innerHeight;
+    const nikoSize = 135;
+
+    // Margens para não sumir nem cobrir totalmente bordas
+    const minX = 20;
+    const maxX = Math.max(minX, winW - nikoSize - 30);
+    const minY = 60;
+    const maxY = Math.max(minY, winH - nikoSize - 40);
+
+    // Sorteia nova posição na tela
+    const targetX = Math.floor(Math.random() * (maxX - minX)) + minX;
+    const targetY = Math.floor(Math.random() * (maxY - minY)) + minY;
+
+    // Converte posição atual para coordenadas left/top se necessário
+    const currentRect = this.container.getBoundingClientRect();
+    this.container.style.bottom = 'auto';
+    this.container.style.right = 'auto';
+    this.container.style.left = `${currentRect.left}px`;
+    this.container.style.top = `${currentRect.top}px`;
+
+    // Vira o gatinho na direção para onde está andando
+    const isGoingLeft = targetX < currentRect.left;
+    if (this.avatarImg) {
+      this.avatarImg.style.transform = isGoingLeft ? 'scaleX(-1)' : 'scaleX(1)';
+    }
+
+    // Inicia a caminhada suave com balanço
+    void this.container.offsetWidth; // force reflow
+    this.container.classList.add('walking-across');
+
+    this.container.style.left = `${targetX}px`;
+    this.container.style.top = `${targetY}px`;
+
+    // Ao terminar o percurso
+    setTimeout(() => {
+      this.container.classList.remove('walking-across');
+      this.isWalking = false;
+
+      // Pequena ação ao chegar no destino
+      if (Math.random() < 0.45) {
+        this.spawnSparksAndHearts(2);
+        const wanderThoughts = [
+          "Miau! Passeando pelo nosso universo... 🐾",
+          "Explorando cada cantinho! ✨",
+          "Que lugar lindo... ❤️",
+          "Achei um ponto perfeito pra ficar pertinho! 💖"
+        ];
+        this.say(wanderThoughts[Math.floor(Math.random() * wanderThoughts.length)]);
+      }
+    }, 3900);
   }
 
   // Animação Fofa: Lambendo a Patinha
